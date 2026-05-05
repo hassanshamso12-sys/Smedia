@@ -1,0 +1,50 @@
+:root {
+  /* Core Colors - Vibrant & Friendly */
+  --bg-deep: #08070b;
+  --bg-surface: #0f0d14;
+  --bg-card: rgba(25, 22, 33, 0.6);
+  --bg-card-hover: rgba(35, 30, 45, 0.8);
+  
+  --text-primary: #f8f9fa;
+  --text-secondary: #c9ced6;
+  --text-muted: #8e95a2;
+  
+  /* Vibrant Accents (Social Vibes) */
+  --accent-primary: #ff4d4d; /* Dynamic Red */
+  --accent-secondary: #f9cb28; /* Positive Yellow */
+  --accent-tertiary: #7c4dff; /* Creative Purple */
+  --accent-quaternary: #00e5ff; /* Tech Cyan */
+  
+  /* Gradients */
+  --grad-positive: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%);
+  --grad-creative: linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%);
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-bright: rgba(255, 255, 255, 0.15);
+  
+  /* Shadows */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 25px rgba(124, 77, 255, 0.3);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.2);
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+  
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-main: 'Outfit', var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-heading: 'Lexend', var(--font-geist-sans), Inter, system-ui, sans-serif;
+}
