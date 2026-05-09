@@ -14,6 +14,7 @@ export default function Navbar() {
           <Link href="#portfolio" className={styles.link}>Portfolio</Link>
           <Link href="#services" className={styles.link}>Services</Link>
           <Link href="#about" className={styles.link}>About</Link>
+          <Link href="#contact" className={styles.link}>Contact</Link>
         </div>
 
         <div className={styles.actions}>

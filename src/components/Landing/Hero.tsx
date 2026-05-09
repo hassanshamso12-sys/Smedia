@@ -1,4 +1,5 @@
 'use client';
+import { useContent } from '@/lib/hooks/useContent';
 import styles from './Hero.module.css';
 
 const SvgCamera = () => (
@@ -32,6 +33,37 @@ const SvgSparkle = () => (
   </svg>
 );
 
+const SvgFacebook = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#fbGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <defs><linearGradient id="fbGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#1877F2"/><stop offset="100%" stopColor="#00E5FF"/></linearGradient></defs>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
+
+const SvgInstagram = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#instaGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <defs><linearGradient id="instaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#f9cb28"/><stop offset="50%" stopColor="#ff4d4d"/><stop offset="100%" stopColor="#7c4dff"/></linearGradient></defs>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const SvgX = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#xGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <defs><linearGradient id="xGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#101012"/><stop offset="100%" stopColor="#718096"/></linearGradient></defs>
+    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+  </svg>
+);
+
+const SvgTikTok = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#tiktokGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <defs><linearGradient id="tiktokGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#00f2ea"/><stop offset="100%" stopColor="#ff0050"/></linearGradient></defs>
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+  </svg>
+);
+
 const FloatingIcon = ({ children, className, style }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => (
   <div className={`${styles.floatingIcon} ${className}`} style={style}>
     <div className={`glass ${styles.iconGlass}`}>
@@ -41,35 +73,54 @@ const FloatingIcon = ({ children, className, style }: { children: React.ReactNod
 );
 
 export default function Hero() {
+  const { content, loading } = useContent();
+
+  const title = content?.hero?.title || 'Elevate Your Digital Presence';
+  const subtitle = content?.hero?.subtitle || 'Creative social media marketing and multimedia production that builds trust and drives growth. Positive vibes, professional results.';
+
   return (
     <section className={styles.hero}>
       <div className={styles.backgroundGlow} />
       
-      {/* Animated Icons Ecosystem - More dynamic */}
+      {/* Animated Icons Ecosystem */}
       <div className={styles.iconContainer}>
-        <FloatingIcon className={styles.animFloat1} style={{ top: '20%', left: '15%' }}>
+        {/* Core Capabilities */}
+        <FloatingIcon className={styles.animFloat1} style={{ top: '15%', left: '12%' }}>
           <SvgCamera />
         </FloatingIcon>
-        <FloatingIcon className={styles.animFloat2} style={{ top: '30%', right: '20%' }}>
+        <FloatingIcon className={styles.animFloat2} style={{ top: '25%', right: '18%' }}>
           <SvgVideo />
         </FloatingIcon>
-        <FloatingIcon className={styles.animFloat3} style={{ bottom: '25%', left: '20%' }}>
+        <FloatingIcon className={styles.animFloat3} style={{ bottom: '20%', left: '15%' }}>
           <SvgChart />
         </FloatingIcon>
-        <FloatingIcon className={styles.animFloat4} style={{ bottom: '35%', right: '15%' }}>
+        <FloatingIcon className={styles.animFloat4} style={{ bottom: '30%', right: '12%' }}>
           <SvgSparkle />
+        </FloatingIcon>
+
+        {/* Social Platforms */}
+        <FloatingIcon className={styles.animFloat2} style={{ top: '10%', right: '40%' }}>
+          <SvgInstagram />
+        </FloatingIcon>
+        <FloatingIcon className={styles.animFloat3} style={{ top: '45%', left: '5%' }}>
+          <SvgFacebook />
+        </FloatingIcon>
+        <FloatingIcon className={styles.animFloat1} style={{ bottom: '15%', right: '45%' }}>
+          <SvgTikTok />
+        </FloatingIcon>
+        <FloatingIcon className={styles.animFloat4} style={{ bottom: '50%', right: '5%' }}>
+          <SvgX />
         </FloatingIcon>
       </div>
 
       <div className={`container ${styles.content}`}>
         <div className={styles.innerContent}>
           <h1 className={styles.title}>
-            Elevate Your <br />
-            <span className="text-grad">Digital Presence</span>
+            {title.split('Digital')[0]} <br />
+            <span className="text-grad">{title.split('Digital')[1] || 'Digital Presence'}</span>
           </h1>
           <p className={styles.subtitle}>
-            Creative social media marketing and multimedia production <br />
-            that builds trust and drives growth. Positive vibes, professional results.
+            {subtitle}
           </p>
           
           <div className={styles.actions}>

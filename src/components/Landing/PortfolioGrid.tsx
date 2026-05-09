@@ -1,34 +1,25 @@
 'use client';
+import { useContent } from '@/lib/hooks/useContent';
 import styles from './PortfolioGrid.module.css';
 
-const projects = [
-  {
-    title: "Social Growth Strategy",
-    category: "Marketing",
-    metric: "+240% Engagement",
-    image: "/portfolio/social.png"
-  },
-  {
-    title: "Lifestyle Branding",
-    category: "Photography",
-    metric: "Premium Visuals",
-    image: "/portfolio/photo.png"
-  },
-  {
-    title: "Cinematic Commercial",
-    category: "Video",
-    metric: "High Impact",
-    image: "https://images.unsplash.com/photo-1492691523567-6170c3295db5?auto=format&fit=crop&q=80&w=800" // Fallback unsplash
-  },
-  {
-    title: "Content Ecosystem",
-    category: "Strategy",
-    metric: "Unified Voice",
-    image: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=800" // Fallback unsplash
-  }
-];
-
 export default function PortfolioGrid() {
+  const { content, loading } = useContent();
+
+  const projects = content?.portfolio || [
+    {
+      title: "Social Growth Strategy",
+      category: "Marketing",
+      metric: "+240% Engagement",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      title: "Lifestyle Branding",
+      category: "Photography",
+      metric: "Premium Visuals",
+      image: "https://images.unsplash.com/photo-1492691523567-6170c3295db5?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
   return (
     <section id="portfolio" className="section">
       <div className="container">
@@ -38,7 +29,7 @@ export default function PortfolioGrid() {
         </div>
 
         <div className={styles.grid}>
-          {projects.map((project, i) => (
+          {projects.map((project: any, i: number) => (
             <div key={i} className={`glass-hover ${styles.card}`}>
               <div className={styles.imageWrapper}>
                 <img src={project.image} alt={project.title} className={styles.image} />

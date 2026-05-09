@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "The ultimate hub for managing your social media presence with style and efficiency.",
 };
 
+import DynamicTheme from "@/components/UI/DynamicTheme";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <DynamicTheme />
+        {children}
+      </body>
     </html>
   );
 }
