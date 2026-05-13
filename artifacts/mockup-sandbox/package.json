@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port $PORT",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "start": "vite preview --host 0.0.0.0 --port $PORT"
+    "start": "vite preview --host 0.0.0.0 --port $PORT",
   }
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
