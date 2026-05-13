@@ -29,7 +29,7 @@ export default function Navbar() {
         </a>
 
         <div className={styles.links}>
-          <a href="#portfolio" className={styles.link}>Portfolio</a>
+          <a href="/" className={styles.link}>Home</a>
 
           {/* Services dropdown */}
           <div
