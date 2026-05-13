@@ -32,7 +32,7 @@ const DEFAULT_CONTENT = {
   ],
   portfolio: [
     { title: 'Social Growth Strategy', category: 'Marketing', metric: '+240% Engagement', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
-    { title: 'Lifestyle Branding', category: 'Photography', metric: 'Premium Visuals', image: 'https://images.unsplash.com/photo-1492691523567-6170c3295db5?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Lifestyle Branding', category: 'Photography', metric: 'Premium Visuals', image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800' },
   ],
   contact: {
     email: 'hello@smediahub.com',
