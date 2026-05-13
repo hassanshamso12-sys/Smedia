@@ -190,6 +190,71 @@
   font-size: 0.975rem;
 }
 
+/* ── Team ── */
+.teamSection {
+  background: var(--bg-surface);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg) var(--space-xl);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.teamPhotoCluster {
+  width: 110px;
+  height: 110px;
+  flex: 0 0 110px;
+  min-width: 110px;
+  min-height: 110px;
+  max-width: 110px;
+  max-height: 110px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.teamPhoto {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 999px;
+  border: 4px solid rgba(255,255,255,0.95);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+.teamInfo {
+  padding: 0;
+}
+
+.teamInfo h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.teamPost {
+  font-size: 0.72rem;
+  color: var(--accent-tertiary);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 /* ── CTA ── */
 .ctaSection {
   background: var(--bg-surface);
@@ -270,17 +335,9 @@
   }
 
   .teamGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md) var(--space-lg);
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  .teamCard {
-    padding: 0;
-    width: 100%;
-    align-items: center;
-    gap: var(--space-sm);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    max-width: 360px;
   }
 
   .teamPhotoCluster {
@@ -291,32 +348,6 @@
     min-height: 72px;
     max-width: 72px;
     max-height: 72px;
-    border-radius: 999px;
-    overflow: hidden;
-  }
-
-  .teamPhoto {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    border-radius: 999px;
-  }
-
-  .teamGrid {
-    gap: var(--space-md) var(--space-md);
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  .teamPhotoCluster {
-    width: 48px;
-    height: 48px;
-    flex: 0 0 48px;
-    min-width: 48px;
-    min-height: 48px;
-    max-width: 48px;
-    max-height: 48px;
   }
 
   .ctaBox {
