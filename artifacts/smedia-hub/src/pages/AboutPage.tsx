@@ -268,7 +268,7 @@ export default function AboutPage() {
             with the tools, visuals, and space they need to grow professionally.
           </p>
           <div className={styles.heroActions}>
-            <a href="#contact" className="btn btn-primary">Work With Us</a>
+            <a href="/contact" className="btn btn-primary">Work With Us</a>
             <a href="#what-we-do" className="btn btn-outline">What We Do</a>
           </div>
         </div>
@@ -324,7 +324,7 @@ export default function AboutPage() {
           <div className={`glass ${styles.ctaBox}`}>
             <h2>Ready to Grow <span className="text-grad">Professionally?</span></h2>
             <p>Tell us about your brand and let's build something that lasts.</p>
-            <a href="mailto:hello@smediahub.com" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '16px 40px' }}>
+            <a href="/contact" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '16px 40px' }}>
               Get In Touch
             </a>
           </div>

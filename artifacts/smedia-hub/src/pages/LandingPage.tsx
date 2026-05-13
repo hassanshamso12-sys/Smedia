@@ -30,9 +30,9 @@ export default function LandingPage() {
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', marginBottom: '48px', maxWidth: '750px', margin: '0 auto 48px', lineHeight: 1.6 }}>
                 Let's collaborate to create something extraordinary. Reach out to us at <span style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>{contact.email}</span> or follow our journey on Instagram <span style={{ color: 'var(--accent-tertiary)', fontWeight: 700 }}>{contact.instagram}</span>.
               </p>
-              <button className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '18px 48px' }}>
+              <a href="/contact" className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '18px 48px', display: 'inline-block' }}>
                 Schedule a Consultation
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -51,7 +51,7 @@ export default function LandingPage() {
               <a href="/support" className="link-hover">Support</a>
               <a href="#" className="link-hover">Privacy</a>
               <a href="#" className="link-hover">Terms</a>
-              <a href="#contact" className="link-hover">Contact</a>
+              <a href="/contact" className="link-hover">Contact</a>
             </div>
           </div>
         </div>

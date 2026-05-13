@@ -123,8 +123,8 @@ export default function Hero() {
           </p>
           
           <div className={styles.actions}>
-            <button className="btn btn-primary">Let's Create Together</button>
-            <button className="btn btn-outline">Explore Portfolio</button>
+            <a href="/contact" className="btn btn-primary">Let's Create Together</a>
+            <a href="#portfolio" className="btn btn-outline">Explore Portfolio</a>
           </div>
         </div>
       </div>

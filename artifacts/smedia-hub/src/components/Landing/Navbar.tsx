@@ -12,11 +12,11 @@ export default function Navbar() {
           <a href="#portfolio" className={styles.link}>Portfolio</a>
           <a href="#services" className={styles.link}>Services</a>
           <a href="/about" className={styles.link}>About</a>
-          <a href="#contact" className={styles.link}>Contact</a>
+          <a href="/contact" className={styles.link}>Contact</a>
         </div>
 
         <div className={styles.actions}>
-          <button className="btn btn-primary">Let's Create</button>
+          <a href="/contact" className="btn btn-primary">Let's Create</a>
         </div>
       </div>
     </nav>
