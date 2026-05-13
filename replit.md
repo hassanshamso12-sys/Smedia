@@ -1,44 +1,57 @@
-# [Project name]
+# S.media Hub
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A unified social media management and marketing hub with a landing page, analytics dashboard, and admin CMS backed by Firebase Firestore.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/smedia-hub run dev` — run the frontend (Vite dev server)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Required env: Firebase vars (see below)
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React + Vite (artifacts/smedia-hub)
+- Backend/CMS: Firebase Firestore (client-side, via firebase SDK)
+- Styling: CSS Modules + custom design tokens (no Tailwind on the main app)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/smedia-hub/src/pages/` — page components (LandingPage, DashboardPage, SupportPage)
+- `artifacts/smedia-hub/src/components/Landing/` — landing page sections (Navbar, Hero, Trust, Services, PortfolioGrid)
+- `artifacts/smedia-hub/src/components/Dashboard/` — dashboard components (BentoGrid, StatCard, ChartPlaceholder)
+- `artifacts/smedia-hub/src/components/Sidebar/` — dashboard sidebar
+- `artifacts/smedia-hub/src/components/UI/DynamicTheme.tsx` — applies Firestore theme settings to CSS vars
+- `artifacts/smedia-hub/src/lib/firebase/config.ts` — Firebase initialization (reads VITE_FIREBASE_* env vars)
+- `artifacts/smedia-hub/src/lib/hooks/useContent.ts` — Firestore listener for live site content
+- `artifacts/smedia-hub/src/index.css` — design tokens (CSS custom properties) + global styles
+- `artifacts/smedia-hub/src/app/dashboard/page.module.css` — dashboard CSS module
+- `artifacts/smedia-hub/src/app/support/support.module.css` — support/admin CSS module
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- No backend API server — all data comes from Firebase Firestore via the client SDK
+- Content is managed via /support admin panel (login: admin / smedia2026) and saved to Firestore `site_content/config`
+- `useContent()` hook uses Firestore `onSnapshot` for real-time updates across all pages
+- `DynamicTheme` applies theme CSS vars from Firestore (primary color, background, fonts) at runtime
+- CSS Modules for all component-level styles, with global CSS tokens in index.css
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- **Landing page** (/) — Hero, Trust stats, Services, Portfolio grid, CTA/contact section, footer
+- **Dashboard** (/dashboard) — bento grid analytics dashboard with stat cards, performance chart, connections panel, content calendar
+- **Support/Admin** (/support) — password-protected CMS panel to edit hero text, contact info, services, portfolio items, and theme
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- App uses its own CSS design system (not Tailwind) — maintain CSS Module + custom property patterns
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Firebase env vars use VITE_ prefix (not NEXT_PUBLIC_): VITE_FIREBASE_API_KEY, VITE_FIREBASE_AUTH_DOMAIN, etc.
+- Without Firebase config, the app works with default placeholder content (graceful fallback)
+- The /support admin login credentials are hardcoded: admin / smedia2026
 
 ## Pointers
 

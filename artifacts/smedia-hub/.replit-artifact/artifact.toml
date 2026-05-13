@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "S.media Hub"
+version = "1.0.0"
+id = "artifacts/smedia-hub"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22028
+
+[services.development]
+run = "pnpm --filter @workspace/smedia-hub run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/smedia-hub", "run", "build" ]
+publicDir = "artifacts/smedia-hub/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22028"
+BASE_PATH = "/"

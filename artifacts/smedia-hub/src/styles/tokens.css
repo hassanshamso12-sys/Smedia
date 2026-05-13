@@ -1,0 +1,51 @@
+:root {
+  /* Core Colors - Vibrant & Friendly (Light Theme) */
+  --bg-deep: #ffffff;
+  --bg-surface: #fcfcfd;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
+  
+  --text-primary: #101012;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  
+  /* Vibrant Accents (Social Vibes) */
+  --accent-primary: #ff4d4d; /* Dynamic Red */
+  --accent-secondary: #f9cb28; /* Positive Yellow */
+  --accent-tertiary: #7c4dff; /* Creative Purple */
+  --accent-quaternary: #00e5ff; /* Tech Cyan */
+  --accent-glow: rgba(124, 77, 255, 0.15);
+  
+  /* Gradients */
+  --grad-positive: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%);
+  --grad-creative: linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%);
+  --grad-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
+  
+  --border-glass: rgba(0, 0, 0, 0.06);
+  --border-glass-bright: rgba(0, 0, 0, 0.1);
+  
+  /* Shadows - More pronounced for light theme */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 10px 30px rgba(124, 77, 255, 0.1);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.05);
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+  
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-main: 'Outfit', var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-heading: 'Lexend', var(--font-geist-sans), Inter, system-ui, sans-serif;
+}
