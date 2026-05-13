@@ -66,12 +66,6 @@ export default function Footer() {
     { label: 'TikTok',    href: 'https://www.tiktok.com/@s.media.hub?_r=1&_t=ZS-96ADeYRD5lM',       Icon: TikTokIcon,  color: '#111111' },
   ];
 
-  const accountNames = [
-    { label: 'Facebook', value: 's.media.hub' },
-    { label: 'Instagram', value: '@s.media.hub' },
-    { label: 'TikTok', value: '@s.media.hub' },
-  ];
-
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
@@ -100,14 +94,6 @@ export default function Footer() {
             >
               <Icon />
             </a>
-          ))}
-        </div>
-
-        <div className={styles.socialNames}>
-          {accountNames.map(({ label, value }) => (
-            <span key={label} className={styles.socialName}>
-              {value}
-            </span>
           ))}
         </div>
       </div>
