@@ -271,22 +271,35 @@
 
   .teamGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-lg) var(--space-xl);
+    gap: var(--space-md);
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .teamCard {
     padding: 0;
+    width: 100%;
+    align-items: center;
   }
 
   .teamPhotoCluster {
-    width: 96px;
-    height: 96px;
-    flex-basis: 96px;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 999px;
+    overflow: hidden;
   }
 
   .teamPhoto {
     width: 100%;
     height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 999px;
   }
 
   .ctaBox {
