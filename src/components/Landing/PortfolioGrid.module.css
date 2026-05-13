@@ -15,8 +15,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: var(--space-2xl);
 }
 
 .card {
@@ -69,22 +69,24 @@
 }
 
 .content {
-  padding: var(--space-lg);
+  padding: var(--space-xl);
 }
 
 .category {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   color: var(--accent-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-xs);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
   display: block;
 }
 
 .projectTitle {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
   margin: 0;
+  line-height: 1.2;
 }
 
 @media (max-width: 768px) {

@@ -11,11 +11,11 @@
 
 .navInner {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-sm) var(--space-xl);
+  padding: var(--space-md) var(--space-2xl);
   border-radius: var(--radius-full);
 }
 
@@ -25,7 +25,7 @@
 }
 
 .logoImg {
-  height: 40px;
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
