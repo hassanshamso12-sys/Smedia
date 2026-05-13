@@ -216,12 +216,32 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .hero {
+    min-height: unset;
+    padding-top: 110px;
+    padding-bottom: var(--space-2xl);
+  }
+
   .heroTitle {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-lg);
   }
 
   .heroBody {
-    font-size: 1rem;
+    font-size: 0.975rem;
+    line-height: 1.7;
+    max-width: 100%;
+    margin-bottom: var(--space-xl);
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions a {
+    text-align: center;
   }
 
   .pillarsGrid {
@@ -233,10 +253,25 @@
   }
 
   .sectionHeader h2 {
-    font-size: 2rem;
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sectionHeader p {
+    font-size: 0.95rem;
+  }
+
+  .ctaBox {
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: var(--radius-xl);
   }
 
   .ctaBox h2 {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+  }
+
+  .ctaBox p {
+    font-size: 0.975rem;
   }
 }

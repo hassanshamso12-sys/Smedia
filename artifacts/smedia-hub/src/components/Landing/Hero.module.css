@@ -134,10 +134,37 @@
 }
 
 @media (max-width: 768px) {
-  .title {
-    font-size: 3rem;
+  .hero {
+    padding-top: 100px;
+    align-items: flex-start;
+    padding-bottom: var(--space-2xl);
   }
-  
+
+  .title {
+    font-size: 2.6rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 0.975rem;
+    line-height: 1.65;
+    text-align: left;
+    max-width: 100%;
+    padding: 0 var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  .actions a {
+    text-align: center;
+    width: 100%;
+  }
+
   .floatingIcon {
     display: none;
   }

@@ -30,6 +30,7 @@
   object-fit: contain;
 }
 
+/* ── Desktop links ── */
 .links {
   display: flex;
   gap: var(--space-xl);
@@ -68,10 +69,6 @@
 
 .dropTriggerOpen {
   color: var(--accent-primary);
-}
-
-.dropTriggerOpen svg {
-  transform: rotate(180deg);
 }
 
 /* ── Dropdown panel ── */
@@ -168,10 +165,176 @@
 .actions {
   display: flex;
   align-items: center;
+  gap: var(--space-md);
 }
 
+/* ── Hamburger button — hidden on desktop ── */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+  line-height: 0;
+}
+
+.hamburger:hover {
+  background: var(--bg-surface);
+}
+
+/* ── Mobile backdrop overlay ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1099;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+}
+
+/* ── Mobile drawer ── */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-glass);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+}
+
+.drawerOpen {
+  transform: translateY(0);
+}
+
+.drawerLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 88px var(--space-xl) var(--space-xl);
+  gap: 4px;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 14px var(--space-md);
+  border-radius: var(--radius-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  width: 100%;
+  text-align: left;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.drawerLink:hover {
+  background: var(--bg-surface);
+  color: var(--accent-primary);
+}
+
+.drawerServicesToggle {
+  color: var(--text-primary);
+}
+
+/* ── Service sub-list inside drawer ── */
+.drawerServices {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 var(--space-md);
+  padding: var(--space-sm);
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  animation: slideDown 0.22s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.drawerServiceItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.drawerServiceItem:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.drawerServiceItem .dropIcon {
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+}
+
+/* ── CTA button in drawer ── */
+.drawerCta {
+  margin-top: var(--space-md);
+  display: block;
+  text-align: center;
+}
+
+/* ── Mobile breakpoint ── */
 @media (max-width: 768px) {
+  .navbar {
+    top: var(--space-md);
+    padding: 0 var(--space-md);
+  }
+
+  .navInner {
+    padding: var(--space-md) var(--space-lg);
+  }
+
   .links {
     display: none;
+  }
+
+  .ctaDesktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .drawer {
+    display: block;
   }
 }
