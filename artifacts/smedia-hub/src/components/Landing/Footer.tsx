@@ -7,6 +7,12 @@ const WaIcon = () => (
   </svg>
 );
 
+const TikTokIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.14-1.157 4.785 4.785 0 0 1-1.684-2.312.7.7 0 0 0-.662-.466H11.36a.7.7 0 0 0-.7.7v12.471a2.438 2.438 0 1 1-2.438-2.438.7.7 0 0 0 .7-.7V9.74a.7.7 0 0 0-.7-.7A6.835 6.835 0 1 0 15.1 15.875V9.347a8.95 8.95 0 0 0 4.49 1.202.7.7 0 0 0 .7-.7V7.386a.7.7 0 0 0-.7-.7z"/>
+  </svg>
+);
+
 const FbIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -25,13 +31,24 @@ function buildWhatsAppUrl(raw: string): string {
 }
 
 function buildInstagramUrl(raw: string): string {
-  const handle = raw.replace(/^@/, '').trim();
-  return handle ? `https://www.instagram.com/${handle}` : '#';
+  const value = raw.trim();
+  if (!value) return '#';
+  if (value.startsWith('http')) return value;
+  return `https://www.instagram.com/${value.replace(/^@/, '')}`;
 }
 
 function buildFacebookUrl(raw: string): string {
-  const handle = raw.replace(/^@/, '').trim();
-  return handle ? `https://www.facebook.com/${handle}` : '#';
+  const value = raw.trim();
+  if (!value) return '#';
+  if (value.startsWith('http')) return value;
+  return `https://www.facebook.com/${value.replace(/^@/, '')}`;
+}
+
+function buildTikTokUrl(raw: string): string {
+  const value = raw.trim();
+  if (!value) return '#';
+  if (value.startsWith('http')) return value;
+  return `https://www.tiktok.com/${value.replace(/^@/, '@')}`;
 }
 
 export default function Footer() {
@@ -40,11 +57,13 @@ export default function Footer() {
   const whatsapp  = content?.contact?.whatsapp  || '';
   const instagram = content?.contact?.instagram || '';
   const facebook  = content?.contact?.facebook  || '';
+  const tiktok    = content?.contact?.tiktok    || '';
 
   const socials = [
     { label: 'WhatsApp',  href: buildWhatsAppUrl(whatsapp),   Icon: WaIcon,  color: '#25D366' },
-    { label: 'Facebook',  href: buildFacebookUrl(facebook),   Icon: FbIcon,  color: '#1877F2' },
-    { label: 'Instagram', href: buildInstagramUrl(instagram),  Icon: IgIcon,  color: '#E1306C' },
+    { label: 'Facebook',  href: 'https://www.facebook.com/share/1DjjksjQMv/?mibextid=wwXIfr',   Icon: FbIcon,  color: '#1877F2' },
+    { label: 'Instagram', href: 'https://www.instagram.com/s.media.hub?igsh=MTJub2Q1NTdlNDhqdQ==',  Icon: IgIcon,  color: '#E1306C' },
+    { label: 'TikTok',    href: 'https://www.tiktok.com/@s.media.hub?_r=1&_t=ZS-96ADeYRD5lM',       Icon: TikTokIcon,  color: '#111111' },
   ];
 
   return (
