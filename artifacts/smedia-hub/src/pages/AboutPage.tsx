@@ -248,6 +248,37 @@ const values = [
   },
 ];
 
+const team = [
+  {
+    name: 'Maya Haddad',
+    post: 'Founder & Creative Director',
+    bio: 'Leads the studio vision and creative direction.',
+    bio2: 'Shapes brand stories with strategy and polish.',
+    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Karim Saad',
+    post: 'Head of Production',
+    bio: 'Directs shoots and manages visual output.',
+    bio2: 'Keeps every delivery sharp, timely, and consistent.',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Nour El Sayegh',
+    post: 'Brand Strategist',
+    bio: 'Builds positioning and campaign frameworks.',
+    bio2: 'Turns ideas into clear, engaging brand systems.',
+    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Rami Fakhoury',
+    post: 'Content Producer',
+    bio: 'Creates social-first content and edits.',
+    bio2: 'Focuses on visuals that connect and convert.',
+    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className={styles.page}>
@@ -271,6 +302,31 @@ export default function AboutPage() {
           <div className={styles.heroActions}>
             <a href="/contact" className="btn btn-primary">Work With Us</a>
             <a href="#what-we-do" className="btn btn-outline">What We Do</a>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.storySection}>
+        <div className={`container ${styles.storyGrid}`}>
+          <div className={styles.storyText}>
+            <span className={styles.eyebrow}>Our Story</span>
+            <h2>S.media Hub is built for brands that want to stand out.</h2>
+            <p>
+              S.media Hub is a creative studio and digital marketing agency based in Beirut,
+              dedicated to helping brands, businesses, and creators establish a strong and
+              professional presence in today’s digital world.
+            </p>
+            <p>
+              What began as a passion for content creation and marketing evolved into a
+              multi-service creative hub offering photography, videography, branding and studio
+              rental services. Our mission is to create impactful visual experiences and strategic
+              digital solutions that help businesses grow.
+            </p>
+            <p>
+              At S.media Hub, we value creativity, innovation, and authenticity. Every project is
+              approached with attention to detail, creative thinking, and a commitment to quality,
+              ensuring that every brand we work with is represented in the best possible way.
+            </p>
           </div>
         </div>
       </section>
@@ -314,6 +370,30 @@ export default function AboutPage() {
                 <h3 className={styles.valueTitle}>{v.title}</h3>
                 <p className={styles.valueDesc}>{v.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`section ${styles.teamSection}`}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>Our Team</span>
+            <h2>Our team</h2>
+            <p>Meet the people behind the visuals, strategy, and production.</p>
+          </div>
+
+          <div className={styles.teamGrid}>
+            {team.map(member => (
+              <article key={member.name} className={styles.teamCard}>
+                <img className={styles.teamPhoto} src={member.photo} alt={member.name} />
+                <div className={styles.teamInfo}>
+                  <h3>{member.name}</h3>
+                  <p className={styles.teamPost}>{member.post}</p>
+                  <p className={styles.teamBio}>{member.bio}</p>
+                  <p className={styles.teamBio}>{member.bio2}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

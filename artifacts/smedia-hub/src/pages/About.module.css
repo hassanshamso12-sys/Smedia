@@ -190,6 +190,152 @@
   font-size: 0.975rem;
 }
 
+.storySection {
+  padding: 0 0 var(--space-3xl);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.storyText {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.storyText h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+}
+
+.storyText p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.teamSection {
+  background: var(--bg-surface);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.teamCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.teamPhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.teamInfo {
+  padding: var(--space-lg);
+}
+
+.teamInfo h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.teamPost {
+  color: var(--accent-tertiary);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.teamBio {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.storySection {
+  padding: 0 0 var(--space-3xl);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.storyText {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.storyText h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+}
+
+.storyText p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.teamSection {
+  background: var(--bg-surface);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.teamCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.teamPhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.teamInfo {
+  padding: var(--space-lg);
+}
+
+.teamInfo h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.teamPost {
+  color: var(--accent-tertiary);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.teamBio {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
 /* ── CTA ── */
 .ctaSection {
   background: var(--bg-surface);
@@ -259,6 +405,30 @@
 
   .sectionHeader p {
     font-size: 0.95rem;
+  }
+
+  .storyText h2 {
+    font-size: 1.9rem;
+  }
+
+  .storyText p {
+    font-size: 0.975rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .storyText h2 {
+    font-size: 1.9rem;
+  }
+
+  .storyText p {
+    font-size: 0.975rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
   }
 
   .ctaBox {
