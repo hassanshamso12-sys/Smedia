@@ -271,21 +271,22 @@
 
   .teamGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg) var(--space-xl);
   }
 
   .teamCard {
-    padding: var(--space-sm);
+    padding: 0;
   }
 
   .teamPhotoCluster {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+    width: 96px;
+    height: 96px;
+    flex-basis: 96px;
   }
 
   .teamPhoto {
-    width: 48px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
   }
 
   .ctaBox {

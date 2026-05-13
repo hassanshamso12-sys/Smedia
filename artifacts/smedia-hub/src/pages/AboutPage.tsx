@@ -382,22 +382,18 @@ export default function AboutPage() {
       <section className={`section ${styles.teamSection}`}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>Our Team</span>
-            <h2>Our team</h2>
-            <p>Meet the people behind the visuals, strategy, and production.</p>
+            <h2>Meet the <span className="text-grad">team</span>.</h2>
           </div>
 
           <div className={styles.teamGrid}>
             {team.map(member => (
               <article key={member.id} className={styles.teamCard}>
                 <div className={styles.teamPhotoCluster}>
-                  <img className={`${styles.teamPhoto} ${styles.teamPhotoLeft}`} src={member.photo} alt={member.name} />
+                  <img className={styles.teamPhoto} src={member.photo} alt={member.name} />
                 </div>
                 <div className={styles.teamInfo}>
                   <h3>{member.name}</h3>
                   <p className={styles.teamPost}>{member.post}</p>
-                  <p className={styles.teamBio}>{member.bio}</p>
-                  <p className={styles.teamBio}>{member.bio2}</p>
                 </div>
               </article>
             ))}
