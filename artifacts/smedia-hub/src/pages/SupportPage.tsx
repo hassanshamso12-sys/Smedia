@@ -8,6 +8,7 @@ const TABS = [
   { id: 'stats', label: '📊 Stats' },
   { id: 'services', label: '⚙️ Services' },
   { id: 'portfolio', label: '🖼 Portfolio' },
+  { id: 'team', label: '👥 Team' },
   { id: 'contact', label: '📬 Contact' },
   { id: 'theme', label: '🎨 Theme' },
 ];
@@ -34,6 +35,12 @@ const DEFAULT_CONTENT = {
     { title: 'Social Growth Strategy', category: 'Marketing', metric: '+240% Engagement', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
     { title: 'Lifestyle Branding', category: 'Photography', metric: 'Premium Visuals', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=1200' },
   ],
+  team: [
+    { name: 'Maya Haddad', post: 'Founder & Creative Director', bio1: 'Leads the studio vision and creative direction.', bio2: 'Shapes brand stories with strategy and polish.', image: '' },
+    { name: 'Karim Saad', post: 'Head of Production', bio1: 'Directs shoots and manages visual output.', bio2: 'Keeps every delivery sharp, timely, and consistent.', image: '' },
+    { name: 'Nour El Sayegh', post: 'Brand Strategist', bio1: 'Builds positioning and campaign frameworks.', bio2: 'Turns ideas into clear, engaging brand systems.', image: '' },
+    { name: 'Rami Fakhoury', post: 'Content Producer', bio1: 'Creates social-first content and edits.', bio2: 'Focuses on visuals that connect and convert.', image: '' },
+  ],
   contact: {
     email: 'hello@smediahub.com',
     phone: '+1 (555) 000-0000',
@@ -55,6 +62,15 @@ const DEFAULT_CONTENT = {
 
 type Content = typeof DEFAULT_CONTENT;
 
+function uploadableToUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Unable to read image'));
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.readAsDataURL(file);
+  });
+}
+
 function ImagePreview({ url }: { url: string }) {
   const [ok, setOk] = useState(false);
   useEffect(() => { setOk(false); }, [url]);
@@ -74,6 +90,7 @@ export default function SupportPage() {
   const [saveStatus, setSaveStatus] = useState<'idle' | 'ok' | 'err'>('idle');
   const [activeTab, setActiveTab] = useState('hero');
   const [content, setContent] = useState<Content>(DEFAULT_CONTENT);
+  const [teamImageIndex, setTeamImageIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 5000);
@@ -87,6 +104,7 @@ export default function SupportPage() {
             stats: Array.isArray(data.stats) ? data.stats : DEFAULT_CONTENT.stats,
             services: Array.isArray(data.services) ? data.services : DEFAULT_CONTENT.services,
             portfolio: Array.isArray(data.portfolio) ? data.portfolio : DEFAULT_CONTENT.portfolio,
+            team: Array.isArray(data.team) ? data.team : DEFAULT_CONTENT.team,
             contact: { ...DEFAULT_CONTENT.contact, ...data.contact },
             theme: { ...DEFAULT_CONTENT.theme, ...data.theme },
           });
@@ -151,6 +169,27 @@ export default function SupportPage() {
   const removePortfolio = (idx: number) =>
     setContent(c => ({ ...c, portfolio: c.portfolio.filter((_, i) => i !== idx) }));
 
+  const setTeam = (idx: number, key: string, val: string) =>
+    setContent(c => {
+      const team = [...c.team] as any[];
+      team[idx] = { ...team[idx], [key]: val };
+      return { ...c, team };
+    });
+
+  const addTeamMember = () =>
+    setContent(c => ({ ...c, team: [...c.team, { name: '', post: '', bio1: '', bio2: '', image: '' }] }));
+
+  const removeTeamMember = (idx: number) =>
+    setContent(c => ({ ...c, team: c.team.filter((_, i) => i !== idx) }));
+
+  const handleTeamImageUpload = async (idx: number, file?: File | null) => {
+    if (!file) return;
+    setTeamImageIndex(idx);
+    const url = await uploadableToUrl(file);
+    setTeam(idx, 'image', url);
+    setTeamImageIndex(null);
+  };
+
   const setContact = (key: keyof Content['contact'], val: string) =>
     setContent(c => ({ ...c, contact: { ...c.contact, [key]: val } }));
 
@@ -164,11 +203,11 @@ export default function SupportPage() {
           <h1 className={styles.loginTitle}>Admin <span className="text-grad">Access</span></h1>
           <div className={styles.field}>
             <label>Username</label>
-            <input type="text" value={loginData.username} onChange={e => setLoginData({ ...loginData, username: e.target.value })} placeholder="Enter username" />
+            <input autoComplete="username" type="text" value={loginData.username} onChange={e => setLoginData({ ...loginData, username: e.target.value })} placeholder="Enter username" />
           </div>
           <div className={styles.field}>
             <label>Password</label>
-            <input type="password" value={loginData.password} onChange={e => setLoginData({ ...loginData, password: e.target.value })} placeholder="Enter password" />
+            <input autoComplete="current-password" type="password" value={loginData.password} onChange={e => setLoginData({ ...loginData, password: e.target.value })} placeholder="Enter password" />
           </div>
           <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Login</button>
         </form>
@@ -324,6 +363,54 @@ export default function SupportPage() {
                   </div>
                 ))}
                 <button className="btn btn-outline" style={{ marginTop: 8 }} onClick={addPortfolio}>+ Add Project</button>
+              </section>
+            </div>
+          )}
+
+          {activeTab === 'team' && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Team Members</h3>
+                <p className={styles.sectionHint}>Add, edit, and upload profile photos for the About page.</p>
+                {content.team.map((member: any, idx: number) => (
+                  <div key={idx} className={styles.itemEditor}>
+                    <div className={styles.itemEditorHeader}>
+                      <span className={styles.itemNum}>Member {idx + 1}</span>
+                      <button className={styles.deleteBtn} onClick={() => removeTeamMember(idx)}>✕ Remove</button>
+                    </div>
+                    <div className={styles.fieldGrid}>
+                      <div className={styles.field}>
+                        <label>Name</label>
+                        <input value={member.name || ''} onChange={e => setTeam(idx, 'name', e.target.value)} placeholder="Team member name" />
+                      </div>
+                      <div className={styles.field}>
+                        <label>Post</label>
+                        <input value={member.post || ''} onChange={e => setTeam(idx, 'post', e.target.value)} placeholder="Role / position" />
+                      </div>
+                    </div>
+                    <div className={styles.fieldGrid}>
+                      <div className={styles.field}>
+                        <label>Bio line 1</label>
+                        <input value={member.bio1 || ''} onChange={e => setTeam(idx, 'bio1', e.target.value)} placeholder="Short line one" />
+                      </div>
+                      <div className={styles.field}>
+                        <label>Bio line 2</label>
+                        <input value={member.bio2 || ''} onChange={e => setTeam(idx, 'bio2', e.target.value)} placeholder="Short line two" />
+                      </div>
+                    </div>
+                    <div className={styles.field}>
+                      <label>Profile Photo Upload</label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={e => { void handleTeamImageUpload(idx, e.target.files?.[0] || null); }}
+                      />
+                      {teamImageIndex === idx ? <p className={styles.sectionHint}>Uploading image…</p> : null}
+                      <ImagePreview url={member.image || ''} />
+                    </div>
+                  </div>
+                ))}
+                <button className="btn btn-outline" style={{ marginTop: 8 }} onClick={addTeamMember}>+ Add Team Member</button>
               </section>
             </div>
           )}

@@ -250,6 +250,7 @@ const values = [
 
 const team = [
   {
+    id: 'maya-haddad',
     name: 'Maya Haddad',
     post: 'Founder & Creative Director',
     bio: 'Leads the studio vision and creative direction.',
@@ -257,6 +258,7 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'karim-saad',
     name: 'Karim Saad',
     post: 'Head of Production',
     bio: 'Directs shoots and manages visual output.',
@@ -264,6 +266,7 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'nour-el-sayegh',
     name: 'Nour El Sayegh',
     post: 'Brand Strategist',
     bio: 'Builds positioning and campaign frameworks.',
@@ -271,6 +274,7 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80',
   },
   {
+    id: 'rami-fakhoury',
     name: 'Rami Fakhoury',
     post: 'Content Producer',
     bio: 'Creates social-first content and edits.',
@@ -385,8 +389,10 @@ export default function AboutPage() {
 
           <div className={styles.teamGrid}>
             {team.map(member => (
-              <article key={member.name} className={styles.teamCard}>
-                <img className={styles.teamPhoto} src={member.photo} alt={member.name} />
+              <article key={member.id} className={styles.teamCard}>
+                <div className={styles.teamPhotoCluster}>
+                  <img className={`${styles.teamPhoto} ${styles.teamPhotoLeft}`} src={member.photo} alt={member.name} />
+                </div>
                 <div className={styles.teamInfo}>
                   <h3>{member.name}</h3>
                   <p className={styles.teamPost}>{member.post}</p>
