@@ -270,30 +270,22 @@
   }
 
   .teamGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .teamCard {
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
+    padding: var(--space-sm);
   }
 
   .teamPhotoCluster {
-    width: 136px;
-    height: 136px;
-    flex-basis: 136px;
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
   }
 
   .teamPhoto {
-    width: 136px;
-    height: 136px;
-  }
-
-  .teamPhotoLeft,
-  .teamCard:nth-child(2) .teamPhotoLeft,
-  .teamCard:nth-child(4) .teamPhotoLeft {
-    transform: translateX(0);
+    width: 48px;
+    height: 48px;
   }
 
   .ctaBox {
