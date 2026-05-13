@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, initializeFirestore, memoryLocalCache } from 'firebase/firestore';
+import { getAnalytics, isSupported } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "your-api-key",
@@ -13,6 +14,14 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
+// Initialize Analytics conditionally (only supported in some environments like browsers)
+let analytics;
+isSupported().then((supported) => {
+  if (supported) {
+    analytics = getAnalytics(app);
+  }
+});
+
 // Use in-memory cache to avoid filling browser IndexedDB storage.
 // The try/catch handles HMR re-runs where Firestore is already initialized.
 let db;
@@ -22,4 +31,4 @@ try {
   db = getFirestore(app);
 }
 
-export { app, db };
+export { app, db, analytics };
