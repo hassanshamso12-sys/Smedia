@@ -32,7 +32,7 @@ const DEFAULT_CONTENT = {
   ],
   portfolio: [
     { title: 'Social Growth Strategy', category: 'Marketing', metric: '+240% Engagement', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
-    { title: 'Lifestyle Branding', category: 'Photography', metric: 'Premium Visuals', image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800' },
+    { title: 'Lifestyle Branding', category: 'Photography', metric: 'Premium Visuals', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=1200' },
   ],
   contact: {
     email: 'hello@smediahub.com',
@@ -210,8 +210,6 @@ export default function SupportPage() {
         </header>
 
         <div className={styles.formContainer}>
-
-          {/* ─── HERO ─── */}
           {activeTab === 'hero' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -241,7 +239,6 @@ export default function SupportPage() {
             </div>
           )}
 
-          {/* ─── STATS ─── */}
           {activeTab === 'stats' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -263,7 +260,6 @@ export default function SupportPage() {
             </div>
           )}
 
-          {/* ─── SERVICES ─── */}
           {activeTab === 'services' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -295,7 +291,6 @@ export default function SupportPage() {
             </div>
           )}
 
-          {/* ─── PORTFOLIO ─── */}
           {activeTab === 'portfolio' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -333,7 +328,6 @@ export default function SupportPage() {
             </div>
           )}
 
-          {/* ─── CONTACT ─── */}
           {activeTab === 'contact' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -382,7 +376,6 @@ export default function SupportPage() {
             </div>
           )}
 
-          {/* ─── THEME ─── */}
           {activeTab === 'theme' && (
             <div className={styles.tabContent}>
               <section className={`glass ${styles.section}`}>
@@ -438,7 +431,6 @@ export default function SupportPage() {
               </section>
             </div>
           )}
-
         </div>
       </main>
     </div>
