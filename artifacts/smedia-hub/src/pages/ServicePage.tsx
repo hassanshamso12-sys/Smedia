@@ -1,5 +1,6 @@
 import { useParams } from 'wouter';
 import Navbar from '@/components/Landing/Navbar';
+import Footer from '@/components/Landing/Footer';
 import { getServiceBySlug, services } from '@/lib/servicesData';
 import styles from './ServicePage.module.css';
 
@@ -140,21 +141,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      <footer style={{ padding: '60px 0', background: 'var(--bg-surface)', borderTop: '1px solid var(--border-glass)' }}>
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '32px' }}>
-            <div>
-              <img src="/logo.png" alt="S.media Hub" style={{ height: '44px', width: 'auto', objectFit: 'contain', marginBottom: '12px', display: 'block' }} />
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>© 2026 S.media Hub. All rights reserved.</p>
-            </div>
-            <div style={{ display: 'flex', gap: '28px' }}>
-              <a href="/" className="link-hover">Home</a>
-              <a href="/about" className="link-hover">About</a>
-              <a href="/contact" className="link-hover">Contact</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

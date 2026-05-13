@@ -1,4 +1,5 @@
 import Navbar from '@/components/Landing/Navbar';
+import Footer from '@/components/Landing/Footer';
 import styles from './About.module.css';
 
 const services = [
@@ -331,25 +332,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer style={{ padding: '80px 0', background: 'var(--bg-surface)', borderTop: '1px solid var(--border-glass)' }}>
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
-            <div>
-              <div style={{ marginBottom: '20px' }}>
-                <img src="/logo.png" alt="S.media Hub Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
-              </div>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>© 2026 S.media Hub. All rights reserved.</p>
-            </div>
-            <div style={{ display: 'flex', gap: '32px' }}>
-              <a href="/support" className="link-hover">Support</a>
-              <a href="#" className="link-hover">Privacy</a>
-              <a href="#" className="link-hover">Terms</a>
-              <a href="/" className="link-hover">Home</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

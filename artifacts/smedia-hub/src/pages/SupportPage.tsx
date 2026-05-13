@@ -37,6 +37,7 @@ const DEFAULT_CONTENT = {
   contact: {
     email: 'hello@smediahub.com',
     phone: '+1 (555) 000-0000',
+    whatsapp: '',
     address: 'Dubai, UAE',
     instagram: '@smediahub',
     facebook: 'smediahub',
@@ -345,6 +346,10 @@ export default function SupportPage() {
                   <div className={styles.field}>
                     <label>Phone</label>
                     <input type="tel" value={content.contact.phone} onChange={e => setContact('phone', e.target.value)} placeholder="+1 (555) 000-0000" />
+                  </div>
+                  <div className={styles.field}>
+                    <label>WhatsApp Number</label>
+                    <input type="tel" value={content.contact.whatsapp} onChange={e => setContact('whatsapp', e.target.value)} placeholder="+971501234567" />
                   </div>
                 </div>
                 <div className={styles.field}>
