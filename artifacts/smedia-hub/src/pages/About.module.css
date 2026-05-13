@@ -89,49 +89,61 @@
   line-height: 1.65;
 }
 
-/* ── Pillars ── */
+/* ── Services ── */
 .pillarsSection {
   background: var(--bg-surface);
 }
 
-.pillarsGrid {
+.servicesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
 
-.pillarCard {
-  padding: var(--space-xl);
-  border-radius: var(--radius-lg);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.serviceCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  backdrop-filter: blur(12px);
 }
 
-.pillarCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
+.serviceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glass), 0 20px 60px rgba(0,0,0,0.07);
 }
 
-.pillarNum {
-  display: block;
-  font-size: 0.75rem;
+.serviceIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-lg);
+  min-height: 160px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.serviceInfo {
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
+  flex: 1;
+}
+
+.serviceTitle {
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--accent-primary);
   margin-bottom: var(--space-sm);
-  font-family: var(--font-heading);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
 }
 
-.pillarTitle {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: var(--space-xs);
-  color: var(--text-primary);
-}
-
-.pillarDesc {
+.serviceDesc {
   font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.55;
+  color: var(--text-secondary);
+  line-height: 1.65;
 }
 
 /* ── Values ── */
