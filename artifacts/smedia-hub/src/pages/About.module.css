@@ -309,12 +309,35 @@
     text-align: center;
   }
 
-  .pillarsGrid {
+  .servicesGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .serviceIconWrap {
+    min-height: 120px;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .serviceInfo {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+  }
+
+  .serviceTitle {
+    font-size: 1rem;
+  }
+
+  .serviceDesc {
+    font-size: 0.875rem;
   }
 
   .valuesGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .valueCard {
+    padding: var(--space-lg) var(--space-xl);
   }
 
   .sectionHeader h2 {
