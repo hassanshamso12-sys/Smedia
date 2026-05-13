@@ -33,19 +33,138 @@
 .links {
   display: flex;
   gap: var(--space-xl);
+  align-items: center;
 }
 
 .link {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .link:hover {
   color: var(--accent-primary);
 }
 
+/* ── Services dropdown trigger ── */
+.navItem {
+  position: relative;
+}
+
+.dropTrigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  font-family: var(--font-main);
+}
+
+.dropTrigger svg {
+  transition: transform 0.25s ease;
+}
+
+.dropTriggerOpen {
+  color: var(--accent-primary);
+}
+
+.dropTriggerOpen svg {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  z-index: 2000;
+  animation: dropIn 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dropInner {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  transition: background 0.18s ease;
+  text-decoration: none;
+}
+
+.dropItem:hover {
+  background: var(--bg-surface);
+}
+
+.dropItem:hover .dropArrow {
+  color: var(--accent-primary);
+  transform: translateX(3px);
+}
+
+.dropIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.dropText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.dropLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
+.dropTagline {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropArrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+
+/* ── Actions ── */
 .actions {
   display: flex;
   align-items: center;
