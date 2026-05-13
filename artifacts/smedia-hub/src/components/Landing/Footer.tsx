@@ -78,7 +78,6 @@ export default function Footer() {
           <a href="/"        className="link-hover">Home</a>
           <a href="/about"   className="link-hover">About</a>
           <a href="/contact" className="link-hover">Contact</a>
-          <a href="/support" className="link-hover">Support</a>
         </nav>
 
         <div className={styles.socials}>

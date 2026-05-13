@@ -37,7 +37,16 @@
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-lg);
+  }
+  .number { font-size: 2.2rem; }
+  .label { font-size: 0.8rem; }
+}
+
+@media (max-width: 380px) {
   .grid { grid-template-columns: 1fr; }
   .number { font-size: 2.5rem; }
 }

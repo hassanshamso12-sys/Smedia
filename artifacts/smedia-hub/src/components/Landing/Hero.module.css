@@ -136,8 +136,9 @@
 @media (max-width: 768px) {
   .hero {
     padding-top: 100px;
-    align-items: flex-start;
-    padding-bottom: var(--space-2xl);
+    padding-bottom: var(--space-3xl);
+    align-items: center;
+    min-height: 100svh;
   }
 
   .title {
@@ -148,9 +149,7 @@
   .subtitle {
     font-size: 0.975rem;
     line-height: 1.65;
-    text-align: left;
     max-width: 100%;
-    padding: 0 var(--space-sm);
     margin-bottom: var(--space-xl);
   }
 
@@ -165,7 +164,16 @@
     width: 100%;
   }
 
-  .floatingIcon {
-    display: none;
+  .iconContainer {
+    opacity: 0.35;
+  }
+
+  .iconGlass {
+    padding: 10px;
+  }
+
+  .iconGlass svg {
+    width: 18px;
+    height: 18px;
   }
 }
