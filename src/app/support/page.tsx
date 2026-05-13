@@ -145,8 +145,8 @@ export default function SupportDashboard() {
   return (
     <div className={styles.dashboardLayout}>
       <aside className={styles.sidebar}>
-        <div className={styles.sidebarLogo}>
-          <span className="text-grad">S.media</span> Hub
+        <div className={styles.sidebarLogo} style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/logo.png" alt="S.media Hub Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
         </div>
         <nav className={styles.sideNav}>
           <button onClick={() => setActiveTab('general')} className={activeTab === 'general' ? styles.active : ''}>General Content</button>

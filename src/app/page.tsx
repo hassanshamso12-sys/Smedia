@@ -96,8 +96,8 @@ export default function LandingPage() {
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '10px' }}>
-                <span className="text-grad">S.media</span> Hub
+              <div style={{ marginBottom: '10px' }}>
+                <img src="/logo.png" alt="S.media Hub Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
               </div>
               <p style={{ color: 'var(--text-muted)' }}>© 2026 S.media Hub. All rights reserved.</p>
             </div>

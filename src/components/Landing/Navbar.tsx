@@ -6,9 +6,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={`glass ${styles.navInner}`}>
-        <div className={styles.logo}>
-          <span className="text-grad">S.media</span> Hub
-        </div>
+        <Link href="/" className={styles.logo}>
+          <img src="/logo.png" alt="S.media Hub Logo" className={styles.logoImg} />
+        </Link>
         
         <div className={styles.links}>
           <Link href="#portfolio" className={styles.link}>Portfolio</Link>
