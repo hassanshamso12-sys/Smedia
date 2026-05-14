@@ -2,16 +2,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass-bright);
-  border-radius: 4px; /* Subtle radius, not a bubble */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  margin-bottom: var(--space-lg);
+  border-radius: 6px; /* Slightly more defined radius */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: var(--space-xl);
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .badge::before {
@@ -26,12 +27,17 @@
 
 .text {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.3rem; /* Further enlarged */
+  letter-spacing: -0.02em;
   color: var(--text-primary);
-  opacity: 0.9;
+  opacity: 1;
+  background: var(--grad-positive);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  line-height: 1;
 }
 
 .badge:hover {

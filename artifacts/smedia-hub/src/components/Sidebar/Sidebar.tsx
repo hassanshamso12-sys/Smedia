@@ -19,7 +19,7 @@ const Sidebar = () => {
     <aside className={styles.sidebar}>
       <Link href="/">
         <div className={styles.logo} style={{ cursor: 'pointer' }}>
-          S.Media Hub
+          S.media Hub
         </div>
       </Link>
       

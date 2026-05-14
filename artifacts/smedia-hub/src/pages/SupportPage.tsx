@@ -232,7 +232,7 @@ export default function SupportPage() {
     <div className={styles.dashboardLayout}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarLogo}>
-          <img src="/logo.png" alt="S.Media Hub" style={{ height: 40, width: 'auto' }} />
+          <img src="/logo.png" alt="S.media Hub" style={{ height: 40, width: 'auto' }} />
         </div>
         <div className={styles.userInfo} style={{ padding: '0 16px', marginBottom: '20px' }}>
           <p style={{ fontSize: '0.9rem', fontWeight: 700 }}>{userDoc?.name || user.email}</p>
