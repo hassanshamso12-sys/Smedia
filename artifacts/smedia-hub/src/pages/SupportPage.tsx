@@ -56,7 +56,19 @@ export default function SupportPage() {
     // Load Site Content
     const unsubContent = onSnapshot(doc(db, 'site_content', 'config'), (snap) => {
       if (snap.exists()) {
-        setContent(snap.data());
+        const data = snap.data();
+        // Merge with defaults to ensure all nested objects exist
+        setContent({
+          ...DEFAULT_CONTENT,
+          ...data,
+          hero: { ...DEFAULT_CONTENT.hero, ...(data.hero || {}) },
+          stats: data.stats || [],
+          services: data.services || [],
+          team: data.team || [],
+          contact: { ...DEFAULT_CONTENT.contact, ...(data.contact || {}) },
+          portfolio: data.portfolio || [],
+          theme: { ...DEFAULT_CONTENT.theme, ...(data.theme || {}) }
+        });
       }
       setLoading(false);
     });
@@ -320,17 +332,152 @@ export default function SupportPage() {
                 <h3>Hero Content</h3>
                 <div className={styles.field}>
                   <label>Title</label>
-                  <input value={content.hero.title} onChange={e => setContent({ ...content, hero: { ...content.hero, title: e.target.value } })} />
+                  <input value={content?.hero?.title || ''} onChange={e => setContent({ ...content, hero: { ...content.hero, title: e.target.value } })} />
                 </div>
                 <div className={styles.field}>
                   <label>Subtitle</label>
-                  <textarea rows={3} value={content.hero.subtitle} onChange={e => setContent({ ...content, hero: { ...content.hero, subtitle: e.target.value } })} />
+                  <textarea rows={3} value={content?.hero?.subtitle || ''} onChange={e => setContent({ ...content, hero: { ...content.hero, subtitle: e.target.value } })} />
                 </div>
               </section>
             </div>
           )}
 
-          {/* ... Other tabs follow similar pattern, restricted by isAdmin where necessary ... */}
+          {activeTab === 'stats' && isAdmin && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Platform Statistics</h3>
+                <div className={styles.itemList}>
+                  {(content.stats || []).map((stat: any, idx: number) => (
+                    <div key={idx} className={styles.statRow}>
+                      <input 
+                        value={stat.label || ''} 
+                        onChange={e => {
+                          const s = [...content.stats];
+                          s[idx].label = e.target.value;
+                          setContent({ ...content, stats: s });
+                        }} 
+                        placeholder="Label (e.g. Clients)" 
+                      />
+                      <input 
+                        value={stat.value || ''} 
+                        onChange={e => {
+                          const s = [...content.stats];
+                          s[idx].value = e.target.value;
+                          setContent({ ...content, stats: s });
+                        }} 
+                        placeholder="Value (e.g. 50+)" 
+                      />
+                      <button className={styles.deleteBtn} onClick={() => {
+                        const s = content.stats.filter((_: any, i: number) => i !== idx);
+                        setContent({ ...content, stats: s });
+                      }}>×</button>
+                    </div>
+                  ))}
+                  <button className="btn btn-outline" onClick={() => setContent({ ...content, stats: [...(content.stats || []), { label: '', value: '' }] })}>
+                    + Add Statistic
+                  </button>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {activeTab === 'services' && isAdmin && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Agency Services</h3>
+                <div className={styles.itemList}>
+                  {(content.services || []).map((svc: any, idx: number) => (
+                    <div key={idx} className={`glass ${styles.itemEditor}`}>
+                      <input value={svc.title || ''} onChange={e => {
+                        const s = [...content.services];
+                        s[idx].title = e.target.value;
+                        setContent({ ...content, services: s });
+                      }} placeholder="Service Title" />
+                      <textarea rows={2} value={svc.description || ''} onChange={e => {
+                        const s = [...content.services];
+                        s[idx].description = e.target.value;
+                        setContent({ ...content, services: s });
+                      }} placeholder="Service Description" />
+                      <button className={styles.deleteBtn} onClick={() => {
+                        const s = content.services.filter((_: any, i: number) => i !== idx);
+                        setContent({ ...content, services: s });
+                      }}>Remove Service</button>
+                    </div>
+                  ))}
+                  <button className="btn btn-outline" onClick={() => setContent({ ...content, services: [...(content.services || []), { title: '', description: '', icon: '✨' }] })}>
+                    + Add Service
+                  </button>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {activeTab === 'team' && isAdmin && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Our Team</h3>
+                <div className={styles.itemList}>
+                  {(content.team || []).map((member: any, idx: number) => (
+                    <div key={idx} className={`glass ${styles.itemEditor}`}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <input value={member.name || ''} onChange={e => {
+                          const t = [...content.team];
+                          t[idx].name = e.target.value;
+                          setContent({ ...content, team: t });
+                        }} placeholder="Full Name" />
+                        <input value={member.post || member.role || ''} onChange={e => {
+                          const t = [...content.team];
+                          t[idx].post = e.target.value;
+                          setContent({ ...content, team: t });
+                        }} placeholder="Role/Post" />
+                      </div>
+                      <button className={styles.deleteBtn} onClick={() => {
+                        const t = content.team.filter((_: any, i: number) => i !== idx);
+                        setContent({ ...content, team: t });
+                      }}>Remove Member</button>
+                    </div>
+                  ))}
+                  <button className="btn btn-outline" onClick={() => setContent({ ...content, team: [...(content.team || []), { name: '', role: '', image: '' }] })}>
+                    + Add Team Member
+                  </button>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {activeTab === 'contact' && isAdmin && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Contact & Social Links</h3>
+                <div className={styles.fieldGrid}>
+                  <div className={styles.field}>
+                    <label>Email Address</label>
+                    <input value={content?.contact?.email || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, email: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>Phone Number</label>
+                    <input value={content?.contact?.phone || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, phone: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>WhatsApp Link</label>
+                    <input value={content?.contact?.whatsapp || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, whatsapp: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>Instagram URL</label>
+                    <input value={content?.contact?.instagram || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, instagram: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>TikTok URL</label>
+                    <input value={content?.contact?.tiktok || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, tiktok: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>Facebook URL</label>
+                    <input value={content?.contact?.facebook || ''} onChange={e => setContent({ ...content, contact: { ...content.contact, facebook: e.target.value } })} />
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
           {activeTab === 'portfolio' && (
              <div className={styles.tabContent}>
                 <section className={`glass ${styles.section}`}>
@@ -348,6 +495,38 @@ export default function SupportPage() {
                   ))}
                 </section>
              </div>
+          )}
+
+          {activeTab === 'theme' && isAdmin && (
+            <div className={styles.tabContent}>
+              <section className={`glass ${styles.section}`}>
+                <h3>Visual Identity</h3>
+                <div className={styles.fieldGrid}>
+                  <div className={styles.field}>
+                    <label>Primary Brand Color</label>
+                    <div className={styles.colorRow}>
+                      <input type="color" value={content?.theme?.primaryColor || '#ff4d4d'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
+                      <input type="text" value={content?.theme?.primaryColor || '#ff4d4d'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
+                    </div>
+                  </div>
+                  <div className={styles.field}>
+                    <label>Secondary Accent Color</label>
+                    <div className={styles.colorRow}>
+                      <input type="color" value={content?.theme?.secondaryColor || '#f9cb28'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
+                      <input type="text" value={content?.theme?.secondaryColor || '#f9cb28'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
+                    </div>
+                  </div>
+                  <div className={styles.field}>
+                    <label>Heading Font (Google Fonts)</label>
+                    <input value={content?.theme?.fontHeading || ''} onChange={e => setContent({ ...content, theme: { ...content.theme, fontHeading: e.target.value } })} />
+                  </div>
+                  <div className={styles.field}>
+                    <label>Body Font (Google Fonts)</label>
+                    <input value={content?.theme?.fontBody || ''} onChange={e => setContent({ ...content, theme: { ...content.theme, fontBody: e.target.value } })} />
+                  </div>
+                </div>
+              </section>
+            </div>
           )}
 
           {(!isAdmin && activeTab !== 'portfolio') && (

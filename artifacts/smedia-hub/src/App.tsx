@@ -7,6 +7,7 @@ import ServicePage from "@/pages/ServicePage";
 import DashboardPage from "@/pages/DashboardPage";
 import SupportPage from "@/pages/SupportPage";
 import SignupPage from "@/pages/SignupPage";
+import CalendarPage from "@/pages/CalendarPage";
 import NotFound from "@/pages/not-found";
 import { AuthProvider } from "@/lib/context/AuthContext";
 
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/services/:slug" component={ServicePage} />
       <Route path="/dashboard" component={DashboardPage} />
       <Route path="/support" component={SupportPage} />
+      <Route path="/support/calendar" component={CalendarPage} />
       <Route path="/signup" component={SignupPage} />
       <Route component={NotFound} />
     </Switch>

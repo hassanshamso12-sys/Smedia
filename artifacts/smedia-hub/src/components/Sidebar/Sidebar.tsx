@@ -1,34 +1,36 @@
 import React from 'react';
 import { useAuth } from '@/lib/context/AuthContext';
+import { Link, useLocation } from 'wouter';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
   const { user, userDoc } = useAuth();
+  const [location] = useLocation();
   
   const navItems = [
-    { name: 'Dashboard', icon: '📊', active: true },
-    { name: 'Content Hub', icon: '🎨', active: false },
-    { name: 'Analytics', icon: '📈', active: false },
-    { name: 'Calendar', icon: '📅', active: false },
-    { name: 'Messages', icon: '💬', active: false },
-    { name: 'Settings', icon: '⚙️', active: false },
+    { name: 'Dashboard', icon: '📊', path: '/support' },
+    { name: 'Calendar', icon: '📅', path: '/support/calendar' },
+    { name: 'Content Hub', icon: '🎨', path: '#' },
+    { name: 'Analytics', icon: '📈', path: '#' },
+    { name: 'Settings', icon: '⚙️', path: '#' },
   ];
 
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>
-        S.Media Hub
-      </div>
+      <Link href="/">
+        <div className={styles.logo} style={{ cursor: 'pointer' }}>
+          S.Media Hub
+        </div>
+      </Link>
       
       <nav className={styles.nav}>
         {navItems.map((item) => (
-          <div 
-            key={item.name} 
-            className={`${styles.navItem} ${item.active ? styles.active : ''}`}
-          >
-            <span className={styles.icon}>{item.icon}</span>
-            <span>{item.name}</span>
-          </div>
+          <Link key={item.name} href={item.path}>
+            <div className={`${styles.navItem} ${location === item.path ? styles.active : ''}`}>
+              <span className={styles.icon}>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          </Link>
         ))}
       </nav>
 
