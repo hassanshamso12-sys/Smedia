@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: Check if the user is a Super Admin
+    function isSuperAdmin() {
+      return request.auth != null && (
+        request.auth.token.email.lower() == "admin@smediahub.com" ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super-admin')
+      );
+    }
+
+    // Site content — public reads, authenticated writes
+    match /site_content/{document=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    // Multi-user invitations — only admins can list/write
+    match /invitations/{email} {
+      allow get: if true; 
+      allow list, write: if isSuperAdmin();
+    }
+
+    // Users — Admin can see all, users can see only themselves
+    match /users/{userId} {
+      allow read: if isSuperAdmin() || (request.auth != null && request.auth.uid == userId);
+      allow create: if true;
+      allow update, delete: if isSuperAdmin();
+    }
+
+    // Contact form submissions — write-only from visitors
+    match /contact_messages/{document=**} {
+      allow read: if isSuperAdmin();
+      allow write: if true;
+    }
+    
+    // Global fallback
+    match /{document=**} {
+      allow read, write: if isSuperAdmin();
+    }
+  }
+}
