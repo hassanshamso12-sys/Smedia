@@ -1,6 +1,7 @@
 import { useParams } from 'wouter';
 import Navbar from '@/components/Landing/Navbar';
 import Footer from '@/components/Landing/Footer';
+import BrandBadge from '@/components/UI/BrandBadge';
 import { getServiceBySlug, services } from '@/lib/servicesData';
 import styles from './ServicePage.module.css';
 
@@ -45,9 +46,7 @@ export default function ServicePage() {
             <div className={styles.heroIconWrap} style={{ background: service.bgColor }}>
               <span className={styles.heroEmoji}>{service.icon}</span>
             </div>
-            <span className={styles.eyebrow} style={{ color: service.accentColor, background: `${service.accentColor}18`, border: `1px solid ${service.accentColor}30` }}>
-              Service
-            </span>
+            <BrandBadge />
             <h1 className={styles.heroTitle}>{service.label}</h1>
             <p className={styles.heroTagline} style={{ backgroundImage: service.gradient }}>{service.tagline}</p>
             <p className={styles.heroDesc}>{service.description}</p>

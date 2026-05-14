@@ -4,6 +4,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useContent } from '@/lib/hooks/useContent';
 import Navbar from '@/components/Landing/Navbar';
 import Footer from '@/components/Landing/Footer';
+import BrandBadge from '@/components/UI/BrandBadge';
 import styles from './Contact.module.css';
 
 interface FormData {
@@ -70,7 +71,7 @@ export default function ContactPage() {
         <div className={styles.heroBg} />
         <div className="container">
           <div className={styles.eyebrowRow}>
-            <span className={styles.eyebrow}>Get In Touch</span>
+            <BrandBadge />
           </div>
           <h1 className={styles.title}>
             Let's Build Something <span className="text-grad">Together</span>

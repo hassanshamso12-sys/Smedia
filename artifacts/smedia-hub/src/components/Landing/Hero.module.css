@@ -128,33 +128,6 @@
   justify-content: center;
 }
 
-.brandBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: 10px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass-bright);
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-xl);
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  box-shadow: var(--shadow-glass);
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-.brandBadge::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  background: var(--grad-positive);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-primary);
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }

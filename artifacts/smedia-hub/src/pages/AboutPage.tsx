@@ -1,5 +1,6 @@
 import Navbar from '@/components/Landing/Navbar';
 import Footer from '@/components/Landing/Footer';
+import BrandBadge from '@/components/UI/BrandBadge';
 import styles from './About.module.css';
 
 const services = [
@@ -292,7 +293,7 @@ export default function AboutPage() {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={`container ${styles.heroContent}`}>
-          <span className={styles.eyebrow}>Who We Are</span>
+          <BrandBadge />
           <h1 className={styles.heroTitle}>
             More Than a <br />
             <span className="text-grad">Marketing Agency</span>

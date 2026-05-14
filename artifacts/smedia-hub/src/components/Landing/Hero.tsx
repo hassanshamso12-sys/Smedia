@@ -1,4 +1,5 @@
 import { useContent } from '@/lib/hooks/useContent';
+import BrandBadge from '@/components/UI/BrandBadge';
 import styles from './Hero.module.css';
 
 const SvgCamera = () => (
@@ -114,7 +115,7 @@ export default function Hero() {
 
       <div className={`container ${styles.content}`}>
         <div className={styles.innerContent}>
-          <div className={styles.brandBadge}>S.Media Hub</div>
+          <BrandBadge />
           <h1 className={styles.title}>
             {title.split('Digital')[0]} <br />
             <span className="text-grad">{title.split('Digital')[1] || 'Digital Presence'}</span>
