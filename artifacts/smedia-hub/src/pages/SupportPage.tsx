@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'wouter';
 import { db, auth } from '@/lib/firebase/config';
 import { doc, getDoc, setDoc, collection, onSnapshot, query, where, deleteDoc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
@@ -11,6 +12,7 @@ const TABS = [
   { id: 'services', label: '⚙️ Services', adminOnly: true },
   { id: 'portfolio', label: '🖼 Portfolio', adminOnly: false },
   { id: 'team', label: '👥 Team', adminOnly: true },
+  { id: 'calendar', label: '📅 Calendar', adminOnly: false },
   { id: 'users', label: '🛡 Users', adminOnly: true },
   { id: 'contact', label: '📬 Contact', adminOnly: true },
   { id: 'theme', label: '🎨 Theme', adminOnly: true },
@@ -34,6 +36,7 @@ export default function SupportPage() {
   const [saving, setSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'ok' | 'err'>('idle');
   const [activeTab, setActiveTab] = useState('hero');
+  const [_, setLocation] = useLocation();
   
   // Passcode Protection for Users Tab
   const [isUsersLocked, setIsUsersLocked] = useState(true);
@@ -105,6 +108,10 @@ export default function SupportPage() {
   }, [user, isAdmin]);
 
   const handleTabChange = (tabId: string) => {
+    if (tabId === 'calendar') {
+      setLocation('/support/calendar');
+      return;
+    }
     if (tabId === 'users' && isUsersLocked) {
       setShowPasscodePrompt(true);
       return;
