@@ -6,7 +6,9 @@ import ContactPage from "@/pages/ContactPage";
 import ServicePage from "@/pages/ServicePage";
 import DashboardPage from "@/pages/DashboardPage";
 import SupportPage from "@/pages/SupportPage";
+import SignupPage from "@/pages/SignupPage";
 import NotFound from "@/pages/not-found";
+import { AuthProvider } from "@/lib/context/AuthContext";
 
 function Router() {
   return (
@@ -17,6 +19,7 @@ function Router() {
       <Route path="/services/:slug" component={ServicePage} />
       <Route path="/dashboard" component={DashboardPage} />
       <Route path="/support" component={SupportPage} />
+      <Route path="/signup" component={SignupPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -24,12 +27,12 @@ function Router() {
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <DynamicTheme />
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
         <Router />
       </WouterRouter>
-    </>
+    </AuthProvider>
   );
 }
 

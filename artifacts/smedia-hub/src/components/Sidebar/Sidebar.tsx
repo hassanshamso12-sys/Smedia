@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAuth } from '@/lib/context/AuthContext';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
+  const { user, userDoc } = useAuth();
+  
   const navItems = [
     { name: 'Dashboard', icon: '📊', active: true },
     { name: 'Content Hub', icon: '🎨', active: false },
@@ -14,7 +17,7 @@ const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logo}>
-        S.media Hub
+        S.Media Hub
       </div>
       
       <nav className={styles.nav}>
@@ -31,10 +34,12 @@ const Sidebar = () => {
 
       <div className={styles.footer}>
         <div className={styles.profile}>
-          <div className={styles.avatar}></div>
+          <div className={styles.avatar}>
+            {user?.email?.charAt(0).toUpperCase()}
+          </div>
           <div className={styles.userInfo}>
-            <div className={styles.userName}>Hassan A.</div>
-            <div className={styles.userRole}>Brand Manager</div>
+            <div className={styles.userName}>{userDoc?.name || user?.displayName || 'User'}</div>
+            <div className={styles.userRole}>{userDoc?.role || 'Member'}</div>
           </div>
         </div>
       </div>

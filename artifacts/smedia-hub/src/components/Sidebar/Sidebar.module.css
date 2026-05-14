@@ -15,13 +15,13 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.85rem;
+  font-weight: 900;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-left: var(--space-sm);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 .nav {

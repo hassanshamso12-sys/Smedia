@@ -298,7 +298,7 @@ export default function AboutPage() {
             <span className="text-grad">Marketing Agency</span>
           </h1>
           <p className={styles.heroBody}>
-            At S.media Hub, we combine creativity, strategy, and production under one roof.
+            At S.Media Hub, we combine creativity, strategy, and production under one roof.
             From building brand identities and managing digital presence to producing
             high-quality photography and videography, we provide businesses and creators
             with the tools, visuals, and space they need to grow professionally.
@@ -314,9 +314,9 @@ export default function AboutPage() {
         <div className={`container ${styles.storyGrid}`}>
           <div className={styles.storyText}>
             <span className={styles.eyebrow}>Our Story</span>
-            <h2>S.media Hub is built for brands that want to stand out.</h2>
+            <h2>S.Media Hub is built for brands that want to stand out.</h2>
             <p>
-              S.media Hub is a creative studio and digital marketing agency based in Beirut,
+              S.Media Hub is a creative studio and digital marketing agency based in Beirut,
               dedicated to helping brands, businesses, and creators establish a strong and
               professional presence in today’s digital world.
             </p>
@@ -327,7 +327,7 @@ export default function AboutPage() {
               digital solutions that help businesses grow.
             </p>
             <p>
-              At S.media Hub, we value creativity, innovation, and authenticity. Every project is
+              At S.Media Hub, we value creativity, innovation, and authenticity. Every project is
               approached with attention to detail, creative thinking, and a commitment to quality,
               ensuring that every brand we work with is represented in the best possible way.
             </p>

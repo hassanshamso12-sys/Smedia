@@ -114,6 +114,7 @@ export default function Hero() {
 
       <div className={`container ${styles.content}`}>
         <div className={styles.innerContent}>
+          <div className={styles.brandBadge}>S.Media Hub</div>
           <h1 className={styles.title}>
             {title.split('Digital')[0]} <br />
             <span className="text-grad">{title.split('Digital')[1] || 'Digital Presence'}</span>

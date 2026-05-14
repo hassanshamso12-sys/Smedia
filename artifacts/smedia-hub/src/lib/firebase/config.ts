@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, initializeFirestore, memoryLocalCache } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "your-api-key",
@@ -13,6 +14,7 @@ const firebaseConfig = {
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const auth = getAuth(app);
 
 // Initialize Analytics conditionally (only supported in some environments like browsers)
 let analytics;
@@ -31,4 +33,4 @@ try {
   db = getFirestore(app);
 }
 
-export { app, db, analytics };
+export { app, db, auth, analytics };

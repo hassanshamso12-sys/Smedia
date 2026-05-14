@@ -85,7 +85,7 @@ export default function ServicePage() {
       <section className={`section ${styles.benefitsSection}`}>
         <div className="container">
           <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '16px' }}>
-            Why Choose <span className="text-grad">S.media Hub</span>
+            Why Choose <span className="text-grad">S.Media Hub</span>
           </h2>
           <p className={styles.sectionSub} style={{ textAlign: 'center', maxWidth: '520px', margin: '0 auto 56px' }}>
             What sets our approach apart.

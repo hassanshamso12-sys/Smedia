@@ -53,7 +53,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div className={`glass ${styles.navInner}`}>
           <a href="/" className={styles.logo}>
-            <img src="/logo.png" alt="S.media Hub Logo" className={styles.logoImg} />
+            <img src="/logo.png" alt="S.Media Hub Logo" className={styles.logoImg} />
           </a>
 
           {/* Desktop links */}

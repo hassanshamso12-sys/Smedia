@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useLocation } from 'wouter';
+import { useAuth } from '@/lib/context/AuthContext';
 import Sidebar from '@/components/Sidebar/Sidebar';
 import { BentoGrid, BentoItem } from '@/components/Dashboard/BentoGrid';
 import StatCard from '@/components/Dashboard/StatCard';
@@ -5,6 +8,18 @@ import ChartPlaceholder from '@/components/Dashboard/ChartPlaceholder';
 import styles from '@/app/dashboard/page.module.css';
 
 export default function DashboardPage() {
+  const { user, userDoc, loading } = useAuth();
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      setLocation('/support');
+    }
+  }, [user, loading, setLocation]);
+
+  if (loading) return <div className={styles.loading}>Loading Dashboard…</div>;
+  if (!user) return null;
+
   return (
     <div className={styles.page}>
       <Sidebar />
@@ -12,7 +27,7 @@ export default function DashboardPage() {
       <main className={styles.main}>
         <header className={styles.header}>
           <h1 className={`${styles.title} animate-fade-in`}>Dashboard</h1>
-          <p className={styles.subtitle}>Welcome back, Hassan. Here's what's happening today.</p>
+          <p className={styles.subtitle}>Welcome back, {userDoc?.name || user.displayName || 'User'}. Here's what's happening today.</p>
         </header>
 
         <BentoGrid>
@@ -24,6 +39,7 @@ export default function DashboardPage() {
               icon="👥" 
             />
           </BentoItem>
+          {/* ... Other stats ... */}
           <BentoItem>
             <StatCard 
               title="Avg. Engagement" 

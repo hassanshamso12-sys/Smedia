@@ -70,8 +70,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
-          <img src="/logo.png" alt="S.media Hub" className={styles.logo} />
-          <p className={styles.copy}>© 2026 S.media Hub. All rights reserved.</p>
+          <img src="/logo.png" alt="S.Media Hub" className={styles.logo} />
+          <p className={styles.copy}>© 2026 S.Media Hub. All rights reserved.</p>
         </div>
 
         <nav className={styles.links}>
