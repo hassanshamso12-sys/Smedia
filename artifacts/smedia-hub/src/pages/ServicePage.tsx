@@ -1,140 +1,184 @@
-import { useParams } from 'wouter';
+import { useState, useEffect } from 'react';
+import { Link } from 'wouter';
+import { motion, AnimatePresence } from 'framer-motion';
+import { getServiceBySlug, services } from '@/lib/servicesData';
 import Navbar from '@/components/Landing/Navbar';
 import Footer from '@/components/Landing/Footer';
 import BrandBadge from '@/components/UI/BrandBadge';
-import { getServiceBySlug, services } from '@/lib/servicesData';
+import Typewriter from '@/components/UI/Typewriter';
 import styles from './ServicePage.module.css';
 
-const CheckIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <circle cx="9" cy="9" r="9" fill="currentColor" opacity="0.12"/>
-    <path d="M5 9l3 3 5-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+const ChevronLeft = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m15 18-6-6 6-6"/>
   </svg>
 );
 
-export default function ServicePage() {
-  const params = useParams<{ slug: string }>();
-  const service = getServiceBySlug(params.slug ?? '');
+export default function ServicePage({ params }: { params: { slug: string } }) {
+  const [scrolled, setScrolled] = useState(false);
+  const slug = params?.slug || '';
+  const service = getServiceBySlug(slug);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 120);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!service) {
     return (
-      <div className={styles.page}>
-        <Navbar />
-        <div className={styles.notFound}>
-          <h1>Service not found</h1>
-          <a href="/" className="btn btn-primary">Back to Home</a>
-        </div>
+      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000', color: '#fff', flexDirection: 'column', textAlign: 'center', padding: '20px' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>Service Not Found</h1>
+        <p style={{ color: 'var(--text-muted)' }}>The service you're looking for doesn't exist or has been moved.</p>
+        <Link href="/" style={{ color: 'var(--accent-primary)', marginTop: '20px', textDecoration: 'none', fontWeight: 600 }}>Return Home</Link>
       </div>
     );
   }
 
-  const others = services.filter(s => s.slug !== service.slug);
-
   return (
     <div className={styles.page}>
       <Navbar />
-
+      
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <div className={styles.heroBg} style={{ background: `radial-gradient(ellipse 60% 70% at 15% 50%, ${service.accentColor}14 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 85% 20%, ${service.accentColor}0a 0%, transparent 60%)` }} />
+        <div className={styles.heroBg} style={{ 
+          background: `radial-gradient(circle at 80% 20%, ${service.bgColor}15 0%, transparent 60%)` 
+        }} />
         <div className="container">
+          <Link href="/" className={styles.backLink}>
+            <ChevronLeft /> Back to Home
+          </Link>
+
           <div className={styles.heroInner}>
-            <a href="/#services" className={styles.backLink}>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              All Services
-            </a>
-            <div className={styles.heroIconWrap} style={{ background: service.bgColor }}>
+            <motion.div 
+              className={styles.heroIconWrap}
+              style={{ background: service.bgColor }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+            >
               <span className={styles.heroEmoji}>{service.icon}</span>
-            </div>
-            <BrandBadge />
-            <h1 className={styles.heroTitle}>{service.label}</h1>
-            <p className={styles.heroTagline} style={{ backgroundImage: service.gradient }}>{service.tagline}</p>
-            <p className={styles.heroDesc}>{service.description}</p>
-            <a href="/contact" className="btn btn-primary" style={{ fontSize: '1.05rem', padding: '15px 40px' }}>
-              Get a Quote →
-            </a>
+            </motion.div>
+            
+            <AnimatePresence>
+              {!scrolled && (
+                <motion.div
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeIn" }}
+                >
+                  <BrandBadge className={styles.heroBadge} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.h1 
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <Typewriter 
+                words={[service.label, 'Premium Results', 'Creative Strategy', 'Expert Production']}
+                typingSpeed={80}
+                deletingSpeed={40}
+                pauseTime={2500}
+              />
+            </motion.h1>
+            <motion.p 
+              className={styles.heroTagline}
+              style={{ backgroundImage: service.gradient }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              {service.tagline}
+            </motion.p>
+            <motion.p 
+              className={styles.heroDesc}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+            >
+              {service.description}
+            </motion.p>
+            <motion.a 
+              href="/contact" 
+              className="btn btn-primary"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
+            >
+              Start Your Project
+            </motion.a>
           </div>
         </div>
       </section>
 
-      {/* ── What We Offer ── */}
       <section className={`section ${styles.offersSection}`}>
         <div className="container">
           <div className={styles.twoCol}>
             <div className={styles.offersLeft}>
-              <h2 className={styles.sectionTitle}>What's <span className="text-grad">Included</span></h2>
-              <p className={styles.sectionSub}>Everything we deliver as part of this service, from first briefing to final handoff.</p>
-              <a href="/contact" className="btn btn-outline" style={{ marginTop: '32px' }}>
-                Discuss Your Project
-              </a>
+              <h2 className={styles.sectionTitle}>What's Included</h2>
+              <p className={styles.sectionSub}>Comprehensive solutions tailored to your brand's unique needs and goals.</p>
             </div>
             <ul className={styles.offersList}>
-              {service.offers.map((item, i) => (
-                <li key={i} className={styles.offerItem} style={{ color: service.accentColor }}>
-                  <CheckIcon />
-                  <span>{item}</span>
-                </li>
+              {service.offers.map((f, i) => (
+                <motion.li 
+                  key={i}
+                  className={styles.offerItem}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={service.accentColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {f}
+                </motion.li>
               ))}
             </ul>
           </div>
         </div>
       </section>
 
-      {/* ── Why Us ── */}
       <section className={`section ${styles.benefitsSection}`}>
         <div className="container">
-          <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '16px' }}>
-            Why Choose <span className="text-grad">S.media Hub</span>
-          </h2>
-          <p className={styles.sectionSub} style={{ textAlign: 'center', maxWidth: '520px', margin: '0 auto 56px' }}>
-            What sets our approach apart.
-          </p>
           <div className={styles.benefitsGrid}>
-            {service.benefits.map((b, i) => (
-              <div key={i} className={`glass ${styles.benefitCard}`}>
-                <div className={styles.benefitNum} style={{ backgroundImage: service.gradient }}>{String(i + 1).padStart(2, '0')}</div>
-                <h3 className={styles.benefitTitle}>{b.title}</h3>
-                <p className={styles.benefitBody}>{b.body}</p>
-              </div>
+            {[
+              { t: 'Strategic Alignment', d: 'Every visual and message is crafted to meet your core business objectives.' },
+              { t: 'High-End Quality', d: 'Using state-of-the-art equipment and software to deliver premium results.' },
+              { t: 'Consistent Identity', d: 'Maintaining a unified brand voice across all platforms and content.' }
+            ].map((b, i) => (
+              <motion.div 
+                key={i}
+                className={`glass ${styles.benefitCard}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <h3 className={styles.benefitTitle}>{b.t}</h3>
+                <p className={styles.benefitDesc}>{b.d}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className={`section ${styles.ctaSection}`}>
+      {/* ── More Services ── */}
+      <section className={`section ${styles.moreSection}`}>
         <div className="container">
-          <div className={`glass ${styles.ctaBox}`}>
-            <h2>Ready to Get Started with <span className="text-grad">{service.label}?</span></h2>
-            <p>Send us your brief and we'll come back with a tailored proposal within 24 hours.</p>
-            <div className={styles.ctaActions}>
-              <a href="/contact" className="btn btn-primary" style={{ fontSize: '1.05rem', padding: '15px 36px' }}>
-                Book a Consultation
-              </a>
-              <a href="/about" className="btn btn-outline" style={{ padding: '15px 36px' }}>
-                About Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Other Services ── */}
-      <section className={`section ${styles.otherSection}`}>
-        <div className="container">
-          <h2 className={styles.sectionTitle} style={{ marginBottom: '40px' }}>
-            Explore Other <span className="text-grad">Services</span>
-          </h2>
-          <div className={styles.otherGrid}>
-            {others.map(s => (
-              <a key={s.slug} href={`/services/${s.slug}`} className={`glass ${styles.otherCard}`}>
-                <div className={styles.otherIcon} style={{ background: s.bgColor }}>{s.icon}</div>
-                <div>
-                  <p className={styles.otherLabel}>{s.label}</p>
-                  <p className={styles.otherTagline}>{s.tagline}</p>
-                </div>
-                <svg className={styles.otherArrow} width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 9h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </a>
+          <h2 className={styles.moreTitle}>Explore Other Services</h2>
+          <div className={styles.moreGrid}>
+            {services.filter(s => s.slug !== params.slug).map((s, i) => (
+              <Link key={s.slug} href={`/services/${s.slug}`} className={`glass-hover ${styles.moreCard}`}>
+                <span className={styles.moreIcon} style={{ background: s.bgColor }}>{s.icon}</span>
+                <span className={styles.moreLabel}>{s.label}</span>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,38 +1,47 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { services } from '@/lib/servicesData';
+import BrandBadge from '@/components/UI/BrandBadge';
 import styles from './Navbar.module.css';
 
 const ChevronIcon = ({ rotated }: { rotated?: boolean }) => (
-  <svg
-    width="12" height="12" viewBox="0 0 12 12" fill="none"
-    style={{ display: 'inline-block', marginLeft: 4, transition: 'transform 0.25s', transform: rotated ? 'rotate(180deg)' : 'rotate(0deg)' }}
+  <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2.5" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    style={{ transform: rotated ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }}
   >
-    <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="m6 9 6 6 6-6" />
   </svg>
 );
 
 const HamburgerIcon = ({ open }: { open: boolean }) => (
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-    {open ? (
-      <>
-        <path d="M5 5l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M17 5L5 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      </>
-    ) : (
-      <>
-        <path d="M3 6h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M3 11h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M3 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      </>
-    )}
-  </svg>
+  <div className={styles.hamburgerInner}>
+    <span className={`${styles.bar} ${open ? styles.bar1Open : ''}`} />
+    <span className={`${styles.bar} ${open ? styles.bar2Open : ''}`} />
+    <span className={`${styles.bar} ${open ? styles.bar3Open : ''}`} />
+  </div>
 );
 
 export default function Navbar() {
   const [dropOpen, setDropOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 120);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   function openDrop() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -40,7 +49,9 @@ export default function Navbar() {
   }
 
   function schedulClose() {
-    closeTimer.current = setTimeout(() => setDropOpen(false), 120);
+    closeTimer.current = setTimeout(() => {
+      setDropOpen(false);
+    }, 150);
   }
 
   function closeMenu() {
@@ -50,11 +61,27 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
         <div className={`glass ${styles.navInner}`}>
-          <a href="/" className={styles.logo}>
-            <img src="/logo.png" alt="S.media Hub Logo" className={styles.logoImg} />
-          </a>
+          <div className={styles.logoGroup}>
+            <a href="/" className={styles.logo}>
+              <img src="/logo.png" alt="S.media Hub Logo" className={styles.logoImg} />
+            </a>
+
+            <AnimatePresence>
+              {scrolled && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className={styles.stickyBadge}
+                >
+                  <BrandBadge className={styles.navBadge} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Desktop links */}
           <div className={styles.links}>
@@ -89,7 +116,7 @@ export default function Navbar() {
                           <span className={styles.dropTagline}>{s.tagline}</span>
                         </span>
                         <svg className={styles.dropArrow} width="14" height="14" viewBox="0 0 14 14" fill="none">
-                          <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </a>
                     ))}

@@ -8,7 +8,7 @@
 /* ── Hero ── */
 .hero {
   position: relative;
-  padding: 140px 0 80px;
+  padding: 160px 0 80px;
   overflow: hidden;
 }
 
@@ -25,6 +25,10 @@
   margin-bottom: var(--space-lg);
 }
 
+.heroBadge {
+  margin-bottom: var(--space-xl);
+}
+
 .eyebrow {
   display: inline-block;
   font-size: 0.78rem;
@@ -39,12 +43,16 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.08;
   margin-bottom: var(--space-lg);
   color: var(--text-primary);
+}
+
+.heroBadge {
+  margin-bottom: var(--space-xl);
 }
 
 .subtitle {
@@ -293,7 +301,7 @@
   }
 
   .title {
-    font-size: 2.6rem;
+    font-size: 3rem;
   }
 
   .row {

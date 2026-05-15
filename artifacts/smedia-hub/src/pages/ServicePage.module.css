@@ -18,8 +18,9 @@
 
 /* ── Hero ── */
 .hero {
+  min-height: 80vh;
+  padding: 160px 0 var(--space-3xl);
   position: relative;
-  padding: 130px 0 80px;
   overflow: hidden;
 }
 
@@ -27,6 +28,10 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+.heroBadge {
+  margin-bottom: var(--space-xl);
 }
 
 .heroInner {
@@ -79,7 +84,7 @@
 }
 
 .heroTitle {
-  font-size: 4.5rem;
+  font-size: 5.5rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -332,6 +337,6 @@
   }
 
   .ctaBox h2 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
 }
