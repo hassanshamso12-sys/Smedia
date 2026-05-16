@@ -12,13 +12,13 @@
   /* Vibrant Accents (Social Vibes) */
   --accent-primary: #ff4d4d; /* Dynamic Red */
   --accent-secondary: #f9cb28; /* Positive Yellow */
-  --accent-tertiary: #7c4dff; /* Creative Purple */
+  --accent-tertiary: #004de5; /* Creative Blue */
   --accent-quaternary: #00e5ff; /* Tech Cyan */
-  --accent-glow: rgba(124, 77, 255, 0.15);
+  --accent-glow: rgba(0, 77, 229, 0.15);
   
   /* Gradients */
   --grad-positive: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%);
-  --grad-creative: linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%);
+  --grad-creative: linear-gradient(135deg, #002970 0%, #00e5ff 100%);
   --grad-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
   
   --border-glass: rgba(0, 0, 0, 0.06);
@@ -26,7 +26,7 @@
   
   /* Shadows - More pronounced for light theme */
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 10px 30px rgba(124, 77, 255, 0.1);
+  --shadow-glow: 0 10px 30px rgba(0, 77, 229, 0.1);
   --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.05);
   
   /* Spacing */

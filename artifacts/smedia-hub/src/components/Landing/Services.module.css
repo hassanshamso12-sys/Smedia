@@ -50,7 +50,7 @@
   left: 0;
   width: 4px;
   height: 0;
-  background: var(--grad-positive);
+  background: var(--grad-creative);
   transition: height 0.4s ease;
 }
 
@@ -93,7 +93,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  color: var(--accent-primary);
+  color: var(--accent-quaternary);
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;

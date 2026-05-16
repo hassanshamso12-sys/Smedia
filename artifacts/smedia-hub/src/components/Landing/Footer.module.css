@@ -56,11 +56,11 @@
 }
 
 .socialBtn:hover {
-  background: var(--social-color, var(--accent-primary));
+  background: var(--social-color, var(--accent-quaternary));
   color: #fff;
   border-color: transparent;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--social-color, var(--accent-primary)) 35%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--social-color, var(--accent-quaternary)) 35%, transparent);
 }
 
 @media (max-width: 768px) {

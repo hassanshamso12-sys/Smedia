@@ -87,7 +87,7 @@ const CalendarPage = () => {
   const getEventColor = (type: string) => {
     switch (type) {
       case 'shoot': return '#ff4d4d';
-      case 'edit': return '#7c4dff';
+      case 'edit': return '#004de5';
       case 'post': return '#00e5ff';
       case 'meeting': return '#f9cb28';
       default: return '#666';

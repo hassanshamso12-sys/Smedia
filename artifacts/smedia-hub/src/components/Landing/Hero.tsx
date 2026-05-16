@@ -15,7 +15,7 @@ const SvgCamera = () => (
 
 const SvgVideo = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#videoGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <defs><linearGradient id="videoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#7c4dff" /><stop offset="100%" stopColor="#00e5ff" /></linearGradient></defs>
+    <defs><linearGradient id="videoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#002970" /><stop offset="100%" stopColor="#00e5ff" /></linearGradient></defs>
     <path d="M23 7l-7 5 7 5V7z" />
     <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
   </svg>
@@ -31,7 +31,7 @@ const SvgChart = () => (
 
 const SvgSparkle = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#sparkleGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <defs><linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#ff4d4d" /><stop offset="100%" stopColor="#7c4dff" /></linearGradient></defs>
+    <defs><linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#ff4d4d" /><stop offset="100%" stopColor="#002970" /></linearGradient></defs>
     <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
   </svg>
 );
@@ -45,7 +45,7 @@ const SvgFacebook = () => (
 
 const SvgInstagram = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#instaGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <defs><linearGradient id="instaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#f9cb28" /><stop offset="50%" stopColor="#ff4d4d" /><stop offset="100%" stopColor="#7c4dff" /></linearGradient></defs>
+    <defs><linearGradient id="instaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#f9cb28" /><stop offset="50%" stopColor="#ff4d4d" /><stop offset="100%" stopColor="#002970" /></linearGradient></defs>
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />

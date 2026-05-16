@@ -42,7 +42,7 @@ export const services: ServiceData[] = [
     tagline: 'Stories told in motion.',
     description:
       'Cinematic brand films, social reels, product demos, and campaign videos — produced from concept to final cut. We capture the emotion and energy behind your brand and turn it into content that converts.',
-    gradient: 'linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%)',
+    gradient: 'linear-gradient(135deg, #002970 0%, #00e5ff 100%)',
     accentColor: '#7c4dff',
     bgColor: 'rgba(124,77,255,0.07)',
     icon: '🎬',
@@ -90,7 +90,7 @@ export const services: ServiceData[] = [
     tagline: 'A brand your audience will never forget.',
     description:
       'Logos, colour systems, typography, and visual guidelines that forge a distinct identity. We build brand systems that scale — from your first Instagram post to a full campaign rollout.',
-    gradient: 'linear-gradient(135deg, #00e5ff 0%, #7c4dff 100%)',
+    gradient: 'linear-gradient(135deg, #00e5ff 0%, #002970 100%)',
     accentColor: '#00e5ff',
     bgColor: 'rgba(0,229,255,0.07)',
     icon: '💎',

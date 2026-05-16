@@ -12,7 +12,7 @@ const pillars = [
     icon: '🎯',
     title: 'Strategy & Identity',
     desc: 'Building consistent, professional brand languages.',
-    color: '#7c4dff',
+    color: 'var(--accent-tertiary)',
   },
   {
     id: 'management',
@@ -30,6 +30,7 @@ const pillars = [
   }
 ];
 
+/*
 const team = [
   {
     id: 'hassan-shamseddine',
@@ -48,6 +49,7 @@ const team = [
     photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
   },
 ];
+*/
 
 export default function AboutPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -91,6 +93,14 @@ export default function AboutPage() {
             </AnimatePresence>
           </motion.div>
           
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <span className={styles.eyebrow}>Creative Studio & Strategy Hub</span>
+          </motion.div>
+
           <motion.h1 
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 20 }}
@@ -176,49 +186,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Team ── */}
-      <section className={`section ${styles.teamSection}`}>
+      {/* ── Story ── */}
+      <section className={`section ${styles.valuesSection}`}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <motion.h2
+          <div className={styles.sectionHeader} style={{ textAlign: 'left', maxWidth: '800px', margin: '0' }}>
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              style={{ fontSize: '2.5rem' }}
             >
-              Meet The Visionaries
+              Our Story
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
+              style={{ fontSize: '1.25rem', color: 'var(--text-primary)', fontWeight: 500, lineHeight: 1.6 }}
             >
-              The creative minds driving the success of S.media Hub and our clients.
+              Our journey began with a simple vision: to bridge the gap between high-end creative production and strategic digital management. 
+              We realized that brands shouldn't have to choose between beautiful visuals and data-driven growth — they need both to thrive in today's digital landscape.
             </motion.p>
-          </div>
-
-          <div className={styles.teamGrid}>
-            {team.map((t, i) => (
-              <motion.div 
-                key={t.id}
-                className={styles.teamCard}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className={styles.teamPhotoCluster}>
-                  <img src={t.photo} alt={t.name} className={styles.teamPhoto} />
-                </div>
-                <div className={styles.teamInfo}>
-                  <h3>{t.name}</h3>
-                  <p className={styles.teamPost}>{t.post}</p>
-                </div>
-              </motion.div>
-            ))}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              style={{ marginTop: '24px', fontSize: '1.1rem' }}
+            >
+              Today, S.media Hub stands as a sanctuary for creators and a powerhouse for businesses. We provide the tools, the space, and the strategy to transform your professional identity into a lasting legacy.
+            </motion.p>
           </div>
         </div>
       </section>
+
+      {/* ── Team section removed for now ── */}
+      {/* 
+      <section className={`section ${styles.teamSection}`}>
+        ... (commented out)
+      </section>
+      */}
 
       {/* ── CTA ── */}
       <section className={`section ${styles.ctaSection}`}>

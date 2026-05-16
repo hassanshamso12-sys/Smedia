@@ -20,7 +20,7 @@ const CheckIcon = () => (
   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
     <defs>
       <linearGradient id="checkGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#7c4dff" /><stop offset="1" stopColor="#00e5ff" />
+        <stop stopColor="var(--accent-tertiary)" /><stop offset="1" stopColor="var(--accent-quaternary)" />
       </linearGradient>
     </defs>
     <circle cx="24" cy="24" r="24" fill="url(#checkGrad)" opacity="0.12" />
@@ -160,7 +160,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className={styles.infoItem}>
-                    <div className={styles.infoIcon} style={{ background: 'rgba(124,77,255,0.1)', color: 'var(--accent-tertiary)' }}>
+                    <div className={styles.infoIcon} style={{ background: 'rgba(0, 77, 229, 0.1)', color: 'var(--accent-tertiary)' }}>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                       </svg>

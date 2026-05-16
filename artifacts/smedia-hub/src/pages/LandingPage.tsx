@@ -29,7 +29,7 @@ export default function LandingPage() {
             <div className="glass" style={{ padding: 'clamp(40px, 8vw, 80px) var(--space-xl)', borderRadius: 'var(--radius-xl)' }}>
               <h2 style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)', marginBottom: '24px', lineHeight: 1.15 }}>Ready to <span className="text-grad">Transform</span> Your Brand?</h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)', marginBottom: '48px', maxWidth: '750px', margin: '0 auto 48px', lineHeight: 1.6 }}>
-                Let's collaborate to create something extraordinary. Reach out to us at <span style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>{contact.email}</span> or follow our journey on Instagram <span style={{ color: 'var(--accent-tertiary)', fontWeight: 700 }}>{contact.instagram}</span>.
+                Let's collaborate to create something extraordinary. Reach out to us at <span style={{ color: 'var(--accent-quaternary)', fontWeight: 700 }}>{contact.email}</span> or follow our journey on Instagram <span style={{ color: 'var(--accent-tertiary)', fontWeight: 700 }}>{contact.instagram}</span>.
               </p>
               <a href="/contact" className="btn btn-primary" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', padding: '16px 40px', display: 'inline-block' }}>
                 Schedule a Consultation
