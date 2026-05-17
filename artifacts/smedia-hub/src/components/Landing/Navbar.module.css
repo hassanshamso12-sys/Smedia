@@ -228,6 +228,37 @@
   background: var(--bg-surface);
 }
 
+.hamburgerInner {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.bar1Open {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.bar2Open {
+  opacity: 0;
+}
+
+.bar3Open {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 /* ── Mobile backdrop overlay ── */
 .overlay {
   display: none;
