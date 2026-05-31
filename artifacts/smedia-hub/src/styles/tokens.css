@@ -49,3 +49,27 @@
   --font-main: 'Outfit', var(--font-geist-sans), Inter, system-ui, sans-serif;
   --font-heading: 'Lexend', var(--font-geist-sans), Inter, system-ui, sans-serif;
 }
+
+[data-theme="dark"] {
+  /* Core Colors - Slate Dark Theme */
+  --bg-deep: #0a0a0c !important;
+  --bg-surface: #121215 !important;
+  --bg-card: rgba(20, 20, 25, 0.6) !important;
+  --bg-card-hover: rgba(30, 30, 35, 0.8) !important;
+  
+  --text-primary: #f3f4f6 !important;
+  --text-secondary: #cbd5e1 !important;
+  --text-muted: #94a3b8 !important;
+  
+  --accent-glow: rgba(0, 229, 255, 0.15) !important;
+  
+  --border-glass: rgba(255, 255, 255, 0.08) !important;
+  --border-glass-bright: rgba(255, 255, 255, 0.15) !important;
+  
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+  --shadow-glow: 0 10px 30px rgba(0, 229, 255, 0.15) !important;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+}
+

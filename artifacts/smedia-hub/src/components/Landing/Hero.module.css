@@ -6,7 +6,7 @@
   justify-content: center;
   overflow: hidden;
   padding-top: 160px;
-  background: var(--bg-deep);
+  background: transparent;
 }
 
 .backgroundGlow {
@@ -34,7 +34,7 @@
 }
 
 .iconGlass {
-  padding: 16px;
+  padding: 24px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

@@ -4,6 +4,7 @@ import { services } from '@/lib/servicesData';
 import BrandBadge from '@/components/UI/BrandBadge';
 import styles from './Navbar.module.css';
 
+
 const ChevronIcon = ({ rotated }: { rotated?: boolean }) => (
   <svg 
     width="16" 

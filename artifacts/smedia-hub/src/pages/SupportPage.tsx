@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useAuth } from '@/lib/context/AuthContext';
 import styles from '@/app/support/support.module.css';
 
+
 const TABS = [
   { id: 'hero', label: '✦ Hero', adminOnly: true },
   { id: 'stats', label: '📊 Stats', adminOnly: true },
