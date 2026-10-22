@@ -17,10 +17,10 @@ const DEFAULT_PORTFOLIO = [
 ];
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%)',
-  'linear-gradient(135deg, #7c4dff 0%, #00e5ff 100%)',
-  'linear-gradient(135deg, #f9cb28 0%, #ff4d4d 100%)',
-  'linear-gradient(135deg, #00e5ff 0%, #7c4dff 100%)',
+  'linear-gradient(135deg, #1f4e9c 0%, #21519d 100%)',
+  'linear-gradient(135deg, #21519d 0%, #114888 100%)',
+  'linear-gradient(135deg, #114888 0%, #183c76 100%)',
+  'linear-gradient(135deg, #183c76 0%, #043164 100%)',
 ];
 
 function PortfolioCardImage({ src, alt, index }: { src: string; alt: string; index: number }) {

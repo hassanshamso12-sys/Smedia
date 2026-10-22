@@ -12,21 +12,21 @@ const pillars = [
     icon: '🎯',
     title: 'Strategy & Identity',
     desc: 'Building consistent, professional brand languages.',
-    color: 'var(--accent-tertiary)',
+    color: '#1f4e9c',
   },
   {
     id: 'management',
     icon: '⚡',
     title: 'Digital Presence',
     desc: 'Unified social media management and growth.',
-    color: '#00e5ff',
+    color: '#21519d',
   },
   {
     id: 'production',
     icon: '📸',
     title: 'Visual Production',
     desc: 'High-end photography and videography studio.',
-    color: '#ff4d4d',
+    color: '#114888',
   }
 ];
 

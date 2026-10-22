@@ -18,9 +18,9 @@ export const services: ServiceData[] = [
     tagline: 'Visuals that stop the scroll.',
     description:
       'Professional photography tailored to your brand — from product and lifestyle shoots to editorial campaigns. Every frame is crafted to communicate quality and drive action.',
-    gradient: 'linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%)',
-    accentColor: '#ff4d4d',
-    bgColor: 'rgba(255,77,77,0.07)',
+    gradient: 'linear-gradient(135deg, #1f4e9c 0%, #21519d 100%)',
+    accentColor: '#1f4e9c',
+    bgColor: 'rgba(31,78,156,0.1)',
     icon: '📷',
     offers: [
       'Product & e-commerce photography',
@@ -42,9 +42,9 @@ export const services: ServiceData[] = [
     tagline: 'Stories told in motion.',
     description:
       'Cinematic brand films, social reels, product demos, and campaign videos — produced from concept to final cut. We capture the emotion and energy behind your brand and turn it into content that converts.',
-    gradient: 'linear-gradient(135deg, #002970 0%, #00e5ff 100%)',
-    accentColor: '#7c4dff',
-    bgColor: 'rgba(124,77,255,0.07)',
+    gradient: 'linear-gradient(135deg, #21519d 0%, #114888 100%)',
+    accentColor: '#21519d',
+    bgColor: 'rgba(33,81,157,0.1)',
     icon: '🎬',
     offers: [
       'Brand films and company stories',
@@ -66,9 +66,9 @@ export const services: ServiceData[] = [
     tagline: 'Content that connects and converts.',
     description:
       'Graphics, copywriting, short-form video, and creative assets — built for every platform and format. Consistently on-brand, data-informed, and designed to perform in today\'s fast-moving feeds.',
-    gradient: 'linear-gradient(135deg, #f9cb28 0%, #ff4d4d 100%)',
-    accentColor: '#f9cb28',
-    bgColor: 'rgba(249,203,40,0.07)',
+    gradient: 'linear-gradient(135deg, #114888 0%, #183c76 100%)',
+    accentColor: '#114888',
+    bgColor: 'rgba(17,72,136,0.1)',
     icon: '✏️',
     offers: [
       'Social media graphics and templates',
@@ -90,9 +90,9 @@ export const services: ServiceData[] = [
     tagline: 'A brand your audience will never forget.',
     description:
       'Logos, colour systems, typography, and visual guidelines that forge a distinct identity. We build brand systems that scale — from your first Instagram post to a full campaign rollout.',
-    gradient: 'linear-gradient(135deg, #00e5ff 0%, #002970 100%)',
-    accentColor: '#00e5ff',
-    bgColor: 'rgba(0,229,255,0.07)',
+    gradient: 'linear-gradient(135deg, #1f4e9c 0%, #043164 100%)',
+    accentColor: '#1f4e9c',
+    bgColor: 'rgba(31,78,156,0.1)',
     icon: '💎',
     offers: [
       'Logo design and brand mark creation',
@@ -114,9 +114,9 @@ export const services: ServiceData[] = [
     tagline: 'Grow your audience. Drive real results.',
     description:
       'Full-funnel social strategies across Instagram, TikTok, X, and more — blending data and creativity to grow your following, boost engagement, and convert followers into customers.',
-    gradient: 'linear-gradient(135deg, #ff4d4d 0%, #7c4dff 100%)',
-    accentColor: '#ff4d4d',
-    bgColor: 'rgba(255,77,77,0.07)',
+    gradient: 'linear-gradient(135deg, #21519d 0%, #183c76 100%)',
+    accentColor: '#21519d',
+    bgColor: 'rgba(33,81,157,0.1)',
     icon: '🚀',
     offers: [
       'Social media strategy and roadmap',
@@ -138,9 +138,9 @@ export const services: ServiceData[] = [
     tagline: 'A professional space, ready when you are.',
     description:
       'A fully equipped studio available for your shoots by the hour or day. Lighting rigs, backdrops, and professional gear are all set up — you just bring your vision.',
-    gradient: 'linear-gradient(135deg, #f9cb28 0%, #00e5ff 100%)',
-    accentColor: '#f9cb28',
-    bgColor: 'rgba(249,203,40,0.07)',
+    gradient: 'linear-gradient(135deg, #114888 0%, #043164 100%)',
+    accentColor: '#114888',
+    bgColor: 'rgba(17,72,136,0.1)',
     icon: '🏠',
     offers: [
       'Hourly and full-day booking options',

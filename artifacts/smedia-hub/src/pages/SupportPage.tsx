@@ -26,7 +26,7 @@ const DEFAULT_CONTENT = {
   portfolio: [],
   team: [],
   contact: { email: '', phone: '', whatsapp: '', address: '', instagram: '', facebook: '', x: '', tiktok: '' },
-  theme: { primaryColor: '#ff4d4d', secondaryColor: '#f9cb28', backgroundColor: '#ffffff', fontHeading: 'Lexend', fontBody: 'Outfit' },
+  theme: { primaryColor: '#1f4e9c', secondaryColor: '#21519d', backgroundColor: '#000000', fontHeading: 'Lexend', fontBody: 'Outfit' },
 };
 
 export default function SupportPage() {
@@ -513,15 +513,15 @@ export default function SupportPage() {
                   <div className={styles.field}>
                     <label>Primary Brand Color</label>
                     <div className={styles.colorRow}>
-                      <input type="color" value={content?.theme?.primaryColor || '#ff4d4d'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
-                      <input type="text" value={content?.theme?.primaryColor || '#ff4d4d'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
+                      <input type="color" value={content?.theme?.primaryColor || '#1f4e9c'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
+                      <input type="text" value={content?.theme?.primaryColor || '#1f4e9c'} onChange={e => setContent({ ...content, theme: { ...content.theme, primaryColor: e.target.value } })} />
                     </div>
                   </div>
                   <div className={styles.field}>
                     <label>Secondary Accent Color</label>
                     <div className={styles.colorRow}>
-                      <input type="color" value={content?.theme?.secondaryColor || '#f9cb28'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
-                      <input type="text" value={content?.theme?.secondaryColor || '#f9cb28'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
+                      <input type="color" value={content?.theme?.secondaryColor || '#21519d'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
+                      <input type="text" value={content?.theme?.secondaryColor || '#21519d'} onChange={e => setContent({ ...content, theme: { ...content.theme, secondaryColor: e.target.value } })} />
                     </div>
                   </div>
                   <div className={styles.field}>

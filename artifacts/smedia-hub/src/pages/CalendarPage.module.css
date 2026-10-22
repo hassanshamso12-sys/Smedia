@@ -136,10 +136,10 @@
   margin-bottom: 4px;
 }
 
-.shoot { background: #ff4d4d20; color: #ff4d4d; border: 1px solid #ff4d4d40; }
-.edit { background: #7c4dff20; color: #7c4dff; border: 1px solid #7c4dff40; }
-.post { background: #00e5ff20; color: #00e5ff; border: 1px solid #00e5ff40; }
-.meeting { background: #f9cb2820; color: #f9cb28; border: 1px solid #f9cb2840; }
+.shoot { background: rgba(31, 78, 156, 0.2); color: #1f4e9c; border: 1px solid rgba(31, 78, 156, 0.4); }
+.edit { background: rgba(33, 81, 157, 0.2); color: #21519d; border: 1px solid rgba(33, 81, 157, 0.4); }
+.post { background: rgba(17, 72, 136, 0.2); color: #114888; border: 1px solid rgba(17, 72, 136, 0.4); }
+.meeting { background: rgba(24, 60, 118, 0.2); color: #183c76; border: 1px solid rgba(24, 60, 118, 0.4); }
 .holiday { background: #2ecc7120; color: #2ecc71; border: 1px solid #2ecc7140; }
 
 .googleBtn {

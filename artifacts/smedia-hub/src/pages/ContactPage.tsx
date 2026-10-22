@@ -20,7 +20,7 @@ const CheckIcon = () => (
   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
     <defs>
       <linearGradient id="checkGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-        <stop stopColor="var(--accent-tertiary)" /><stop offset="1" stopColor="var(--accent-quaternary)" />
+        <stop stopColor="var(--accent-primary)" /><stop offset="1" stopColor="var(--accent-secondary)" />
       </linearGradient>
     </defs>
     <circle cx="24" cy="24" r="24" fill="url(#checkGrad)" opacity="0.12" />

@@ -21,7 +21,7 @@ const ChartPlaceholder = ({ height = 200 }: { height?: number }) => {
           left: 0, 
           width: '100%', 
           height: '100%',
-          filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.4))'
+          filter: 'drop-shadow(0 0 10px rgba(31, 78, 156, 0.4))'
         }}
         preserveAspectRatio="none"
       >

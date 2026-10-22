@@ -14,19 +14,19 @@ export default function Trust() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.statItem}>
-            <h3 className={styles.number} style={{ color: 'var(--accent-primary)' }}>{projects}</h3>
+            <h3 className={styles.number} style={{ color: '#fafbfd' }}>{projects}</h3>
             <p className={styles.label}>Projects Completed</p>
           </div>
           <div className={styles.statItem}>
-            <h3 className={styles.number} style={{ color: 'var(--accent-secondary)' }}>{retention}</h3>
+            <h3 className={styles.number} style={{ color: 'var(--accent-primary)' }}>{retention}</h3>
             <p className={styles.label}>Client Retention</p>
           </div>
           <div className={styles.statItem}>
-            <h3 className={styles.number} style={{ color: 'var(--accent-tertiary)' }}>{reach}</h3>
+            <h3 className={styles.number} style={{ color: 'var(--accent-secondary)' }}>{reach}</h3>
             <p className={styles.label}>Reach Generated</p>
           </div>
           <div className={styles.statItem}>
-            <h3 className={styles.number} style={{ color: 'var(--accent-quaternary)' }}>{support}</h3>
+            <h3 className={styles.number} style={{ color: 'var(--accent-primary)' }}>{support}</h3>
             <p className={styles.label}>Dedicated Support</p>
           </div>
         </div>

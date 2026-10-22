@@ -1,31 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-deep: #090b11 !important;
-  --bg-surface: #121215 !important;
-  --bg-card: rgba(20, 20, 25, 0.6) !important;
-  --bg-card-hover: rgba(30, 30, 35, 0.8) !important;
+  --bg-deep: #000000 !important;
+  --bg-surface: #043164 !important;
+  --bg-card: rgba(4, 49, 100, 0.4) !important;
+  --bg-card-hover: rgba(24, 60, 118, 0.55) !important;
   
-  --text-primary: #f3f4f6 !important;
-  --text-secondary: #cbd5e1 !important;
-  --text-muted: #94a3b8 !important;
+  --text-primary: #fafbfd !important;
+  --text-secondary: #a5aab0 !important;
+  --text-muted: rgba(165, 170, 176, 0.7) !important;
   
-  --accent-primary: #ff4d4d;
-  --accent-secondary: #f9cb28;
-  --accent-tertiary: #004de5;
-  --accent-quaternary: #00e5ff;
-  --accent-glow: rgba(0, 229, 255, 0.15) !important;
+  --accent-primary: #1f4e9c;
+  --accent-secondary: #21519d;
+  --accent-tertiary: #114888;
+  --accent-quaternary: #183c76;
+  --accent-night: #043164;
+  --accent-glow: rgba(31, 78, 156, 0.25) !important;
   
-  --grad-positive: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%);
-  --grad-creative: linear-gradient(135deg, #002970 0%, #00e5ff 100%);
-  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  --grad-positive: linear-gradient(135deg, #1f4e9c 0%, #21519d 100%);
+  --grad-creative: linear-gradient(135deg, #1f4e9c 0%, #21519d 50%, #114888 100%);
+  --grad-glass: linear-gradient(135deg, rgba(250, 251, 253, 0.04) 0%, rgba(250, 251, 253, 0.01) 100%) !important;
   
-  --border-glass: rgba(255, 255, 255, 0.08) !important;
-  --border-glass-bright: rgba(255, 255, 255, 0.15) !important;
+  --border-glass: rgba(165, 170, 176, 0.15) !important;
+  --border-glass-bright: rgba(165, 170, 176, 0.3) !important;
   
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
-  --shadow-glow: 0 10px 30px rgba(0, 229, 255, 0.15) !important;
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
+  --shadow-glow: 0 10px 30px rgba(31, 78, 156, 0.25) !important;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.55) !important;
   
   --space-xs: 4px;
   --space-sm: 8px;
@@ -56,7 +57,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   min-height: 100vh;
-  background: linear-gradient(135deg, #050608 0%, #090b11 40%, #141724 100%) no-repeat fixed !important;
+  background: linear-gradient(135deg, #000000 0%, #043164 45%, #183c76 100%) no-repeat fixed !important;
 }
 
 body {
@@ -126,13 +127,13 @@ a {
 
 .btn-primary {
   background: var(--grad-creative);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+  color: #fafbfd;
+  box-shadow: 0 4px 15px rgba(31, 78, 156, 0.4);
 }
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(31, 78, 156, 0.55);
 }
 
 .btn-outline {
@@ -144,7 +145,7 @@ a {
 
 .btn-outline:hover {
   background: var(--border-glass);
-  border-color: var(--accent-quaternary);
+  border-color: var(--accent-primary);
 }
 
 .text-grad {
@@ -201,7 +202,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-quaternary);
+  background: var(--accent-primary);
 }
 
 

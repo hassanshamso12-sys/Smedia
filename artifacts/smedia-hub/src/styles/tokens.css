@@ -1,33 +1,34 @@
 :root {
-  /* Core Colors - Vibrant & Friendly (Light Theme) */
-  --bg-deep: #ffffff;
-  --bg-surface: #fcfcfd;
-  --bg-card: rgba(255, 255, 255, 0.7);
-  --bg-card-hover: rgba(255, 255, 255, 0.9);
+  /* Core Colors - S.media Hub Official Palette */
+  --bg-deep: #000000;
+  --bg-surface: #043164;
+  --bg-card: rgba(4, 49, 100, 0.4);
+  --bg-card-hover: rgba(24, 60, 118, 0.55);
   
-  --text-primary: #101012;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
+  --text-primary: #fafbfd;
+  --text-secondary: #a5aab0;
+  --text-muted: rgba(165, 170, 176, 0.7);
   
-  /* Vibrant Accents (Social Vibes) */
-  --accent-primary: #ff4d4d; /* Dynamic Red */
-  --accent-secondary: #f9cb28; /* Positive Yellow */
-  --accent-tertiary: #004de5; /* Creative Blue */
-  --accent-quaternary: #00e5ff; /* Tech Cyan */
-  --accent-glow: rgba(0, 77, 229, 0.15);
+  /* Brand Accents */
+  --accent-primary: #1f4e9c; /* Signature Brand Blue */
+  --accent-secondary: #21519d; /* Royal Blue */
+  --accent-tertiary: #114888; /* Deep Royal Blue */
+  --accent-quaternary: #183c76; /* Dark Navy Blue */
+  --accent-night: #043164; /* Deep Night Blue */
+  --accent-glow: rgba(31, 78, 156, 0.25);
   
   /* Gradients */
-  --grad-positive: linear-gradient(135deg, #ff4d4d 0%, #f9cb28 100%);
-  --grad-creative: linear-gradient(135deg, #002970 0%, #00e5ff 100%);
-  --grad-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
+  --grad-positive: linear-gradient(135deg, #1f4e9c 0%, #21519d 100%);
+  --grad-creative: linear-gradient(135deg, #1f4e9c 0%, #21519d 50%, #114888 100%);
+  --grad-glass: linear-gradient(135deg, rgba(250, 251, 253, 0.04) 0%, rgba(250, 251, 253, 0.01) 100%);
   
-  --border-glass: rgba(0, 0, 0, 0.06);
-  --border-glass-bright: rgba(0, 0, 0, 0.1);
+  --border-glass: rgba(165, 170, 176, 0.15);
+  --border-glass-bright: rgba(165, 170, 176, 0.3);
   
-  /* Shadows - More pronounced for light theme */
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 10px 30px rgba(0, 77, 229, 0.1);
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.05);
+  /* Shadows */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 10px 30px rgba(31, 78, 156, 0.25);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.55);
   
   /* Spacing */
   --space-xs: 4px;
@@ -51,25 +52,25 @@
 }
 
 [data-theme="dark"] {
-  /* Core Colors - Slate Dark Theme */
-  --bg-deep: #0a0a0c !important;
-  --bg-surface: #121215 !important;
-  --bg-card: rgba(20, 20, 25, 0.6) !important;
-  --bg-card-hover: rgba(30, 30, 35, 0.8) !important;
+  /* Core Colors - S.media Hub Palette */
+  --bg-deep: #000000 !important;
+  --bg-surface: #043164 !important;
+  --bg-card: rgba(4, 49, 100, 0.4) !important;
+  --bg-card-hover: rgba(24, 60, 118, 0.55) !important;
   
-  --text-primary: #f3f4f6 !important;
-  --text-secondary: #cbd5e1 !important;
-  --text-muted: #94a3b8 !important;
+  --text-primary: #fafbfd !important;
+  --text-secondary: #a5aab0 !important;
+  --text-muted: rgba(165, 170, 176, 0.7) !important;
   
-  --accent-glow: rgba(0, 229, 255, 0.15) !important;
+  --accent-glow: rgba(31, 78, 156, 0.25) !important;
   
-  --border-glass: rgba(255, 255, 255, 0.08) !important;
-  --border-glass-bright: rgba(255, 255, 255, 0.15) !important;
+  --border-glass: rgba(165, 170, 176, 0.15) !important;
+  --border-glass-bright: rgba(165, 170, 176, 0.3) !important;
   
-  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  --grad-glass: linear-gradient(135deg, rgba(250, 251, 253, 0.04) 0%, rgba(250, 251, 253, 0.01) 100%) !important;
   
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
-  --shadow-glow: 0 10px 30px rgba(0, 229, 255, 0.15) !important;
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
+  --shadow-glow: 0 10px 30px rgba(31, 78, 156, 0.25) !important;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.55) !important;
 }
 
